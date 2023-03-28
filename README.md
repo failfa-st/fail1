@@ -1,4 +1,6 @@
-Understanding the Script
+# Fail 1
+
+## Understanding the Script
 
 This script is written in JavaScript and uses Node.js to interact with the file system. The script
 generates a new file for a new generation based on an existing file, updates the content of the new
@@ -13,7 +15,7 @@ operations.
 import fs from "fs/promises";
 ```
 
-Defining the Number of Generations
+## Defining the Number of Generations
 
 The number of generations to generate is defined by the generations constant, which is set to 10.
 
@@ -21,7 +23,7 @@ The number of generations to generate is defined by the generations constant, wh
 const generations = 10;
 ```
 
-Defining the Current Generation
+## Defining the Current Generation
 
 The current generation is defined by the generation constant, which is set to 0.
 
@@ -29,7 +31,7 @@ The current generation is defined by the generation constant, which is set to 0.
 const generation = 0;
 ```
 
-Generating a New File for the Next Generation
+## Generating a New File for the Next Generation
 
 A new file is generated for the next generation based on the current generation. The filename is
 generated using the generation constant and the padStart() method to ensure that the filename
@@ -39,7 +41,7 @@ includes leading zeros.
 const filename = `generation-${generation.toString().padStart(3, "0")}.js`;
 ```
 
-Updating the Content of the New File
+## Updating the Content of the New File
 
 The content of the new file is read from the current generation file using the readFile() method of
 the fs module, which returns a Promise that resolves with the content of the file. The content of
@@ -51,7 +53,7 @@ let content = await fs.readFile(filename, "utf-8");
 content = content.replace(/generation = (\d+)/, `generation = ${generation + 1}`);
 ```
 
-Generating a Filename for the Next Generation
+## Generating a Filename for the Next Generation
 
 A new filename is generated for the next generation using the generation constant and the padStart()
 method to ensure that the filename includes leading zeros.
@@ -60,7 +62,7 @@ method to ensure that the filename includes leading zeros.
 const nextFilename = `generation-${(generation + 1).toString().padStart(3, "0")}.js`;
 ```
 
-Writing the Content to the New File
+## Writing the Content to the New File
 
 The updated content is written to the new file using the writeFile() method of the fs module, which
 returns a Promise that resolves when the file has been written.
@@ -74,7 +76,7 @@ try {
 }
 ```
 
-Importing and Executing the New File
+## Importing and Executing the New File
 
 The new file is imported using the import() function, which returns a Promise that resolves with the
 default export of the module. The default export is assumed to be a function, which is executed
@@ -89,7 +91,7 @@ try {
 }
 ```
 
-Checking the Generation Count
+## Checking the Generation Count
 
 The script checks the current generation count against the total number of generations to generate,
 and only executes the generation code if the current generation count is less than the total number
@@ -101,7 +103,7 @@ if (generation < generations) {
 }
 ```
 
-Conclusion
+## Conclusion
 
 This script demonstrates how to generate a new file based on an existing file, update the content of
 the new file, and then import and execute the new file. The script uses Node.js and the fs module is
