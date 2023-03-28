@@ -107,7 +107,7 @@ if (generation < generations) {
 
 This script demonstrates how to generate a new file based on an existing file, update the content of
 the new file, and then import and execute the new file. The script uses Node.js and the fs module is
-a useful tool for performing file system operations in JavaScript, and the import() function is a
+a useful tool for performing file system operations in JavaScript, and the `import()` function is a
 powerful feature that allows for dynamic loading of modules. By combining these features, this
 script demonstrates how to create a chain of generation files that update and execute themselves,
 allowing for the creation of complex and iterative scripts.
