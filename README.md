@@ -86,7 +86,6 @@ after the import is successful. If the import fails, an error message is logged 
 try {
   await import(`./${nextFilename}`);
 } catch (error) {
-  console.log("poop");
   console.error(error);
 }
 ```
