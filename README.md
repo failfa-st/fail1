@@ -34,7 +34,7 @@ const generation = 0;
 ## Generating a New File for the Next Generation
 
 A new file is generated for the next generation based on the current generation. The filename is
-generated using the generation constant and the padStart() method to ensure that the filename
+generated using the generation constant and the `padStart()` method to ensure that the filename
 includes leading zeros.
 
 ```javascript
@@ -43,8 +43,8 @@ const filename = `generation-${generation.toString().padStart(3, "0")}.js`;
 
 ## Updating the Content of the New File
 
-The content of the new file is read from the current generation file using the readFile() method of
-the fs module, which returns a Promise that resolves with the content of the file. The content of
+The content of the new file is read from the current generation file using the `readFile()` method
+of the fs module, which returns a Promise that resolves with the content of the file. The content of
 the file is then updated to reflect the next generation using the replace() method, which replaces a
 regular expression with a replacement string.
 
@@ -55,8 +55,8 @@ content = content.replace(/generation = (\d+)/, `generation = ${generation + 1}`
 
 ## Generating a Filename for the Next Generation
 
-A new filename is generated for the next generation using the generation constant and the padStart()
-method to ensure that the filename includes leading zeros.
+A new filename is generated for the next generation using the generation constant and the
+`padStart()` method to ensure that the filename includes leading zeros.
 
 ```javascript
 const nextFilename = `generation-${(generation + 1).toString().padStart(3, "0")}.js`;
@@ -64,8 +64,8 @@ const nextFilename = `generation-${(generation + 1).toString().padStart(3, "0")}
 
 ## Writing the Content to the New File
 
-The updated content is written to the new file using the writeFile() method of the fs module, which
-returns a Promise that resolves when the file has been written.
+The updated content is written to the new file using the `writeFile()` method of the fs module,
+which returns a Promise that resolves when the file has been written.
 
 ```javascript
 try {
@@ -78,8 +78,8 @@ try {
 
 ## Importing and Executing the New File
 
-The new file is imported using the import() function, which returns a Promise that resolves with the
-default export of the module. The default export is assumed to be a function, which is executed
+The new file is imported using the `import()` function, which returns a Promise that resolves with
+the default export of the module. The default export is assumed to be a function, which is executed
 after the import is successful. If the import fails, an error message is logged to the console.
 
 ```javascript
