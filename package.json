@@ -7,6 +7,9 @@
   "keywords": [],
   "author": "",
   "license": "AGPL",
+  "scripts": {
+    "start": "node generation-000.js"
+  },
   "devDependencies": {
     "prettier": "^2.8.7"
   },
