@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "AGPL",
   "devDependencies": {
     "prettier": "^2.8.7"
   }
