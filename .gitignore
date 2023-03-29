@@ -105,3 +105,6 @@ dist
 
 # saved training data
 training
+
+# IntelliJ
+.idea
