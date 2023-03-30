@@ -12,7 +12,9 @@ previous one, all with the goal of writing a mandelbrot function that draws ASCI
 output in each generation. Witness the incredible potential of machine learning in assisting with
 creative problem-solving in software development like never before!
 
-## Examples (Generation 2)
+## Examples
+
+**(Generation 2)**
 
 ```js
 /**
@@ -23,7 +25,26 @@ creative problem-solving in software development like never before!
  */
 ```
 
-![example-01.png](assets/example-01.png) ![example-02.png](assets/example-02.png)
+<img src="assets/example-01.png" alt="example-01.png" width="200"/>
+<img src="assets/example-02.png" alt="example-02.png" width="200"/>
+
+**(Generation 3)**
+
+```js
+/**
+ * CHANGELOG:
+ * Generation 0: implement base script
+ * Generation 1: implemented mandelbrot function
+ * Generation 2: implemented colorful mandelbrot function
+ * Generation 3: added support for zooming
+ */
+```
+
+<img src="assets/example-03.png" alt="example-03.png" width="200"/>
+<img src="assets/example-04.png" alt="example-04.png" width="200"/>
+<img src="assets/example-05.png" alt="example-05.png" width="200"/>
+<img src="assets/example-06.png" alt="example-06.png" width="200"/>
+<img src="assets/example-07.png" alt="example-07.png" width="200"/>
 
 ## Rules
 
