@@ -64,9 +64,15 @@ export async function evolve(generation) {
 		console.log(`Spawning ${nextFilename}`);
 		await import(`./${nextFilename}`);
 	} catch (error) {
-		console.error(`Error: ${error.response?.message ?? error.message ?? "unknown error"}`);
-		console.log(`Generation ${nextGeneration} failed`);
-		await evolve(generation);
+		const message = (error.response?.message ?? error.message ?? "unknown error").trim();
+		console.error(`Error: ${message}`);
+		// The AI might increment too often
+		if (message.startsWith("ENOENT") && generation > 1) {
+			await evolve(generation - 1);
+		} else {
+			console.log(`Generation ${nextGeneration} failed`);
+			await evolve(generation);
+		}
 	}
 }
 
