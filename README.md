@@ -109,7 +109,11 @@ software development, offering a glimpse into the future of software development
 
 ## Credits
 
-The code and documentation of this project is generated with AI through guidance by a human. The
-code has been adjusted by a human with the help of AI.
+This project is a testament to the incredible potential of human-machine collaboration in software
+development. The code and documentation were generated with the assistance of AI, which was then
+adjusted and refined by human guidance. The generative process implemented by the code demonstrates
+the power of machine learning models in assisting with the creative process.
 
-Ideas for new concepts or improvement are made with the help of AI (often without success).
+New concepts or improvements are explored with the help of AI, although the success rate can vary.
+Nonetheless, the project showcases the exciting possibilities that arise from the intersection of
+human ingenuity and machine intelligence.
