@@ -106,5 +106,9 @@ dist
 # saved training data
 training
 
+#
+generation-*
+!generation-000.js
+
 # IntelliJ
 .idea
