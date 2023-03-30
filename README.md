@@ -12,6 +12,19 @@ previous one, all with the goal of writing a mandelbrot function that draws ASCI
 output in each generation. Witness the incredible potential of machine learning in assisting with
 creative problem-solving in software development like never before!
 
+## Examples (Generation 2)
+
+```js
+/**
+ * CHANGELOG:
+ * Generation 0: implement base script
+ * Generation 1: implement mandelbrot function
+ * Generation 2: improve mandelbrot function, add colors
+ */
+```
+
+![example-01.png](assets/example-01.png) ![example-02.png](assets/example-02.png)
+
 ## Rules
 
 The generative process implemented by the JavaScript files base.js and generation-000.js follows
