@@ -3,6 +3,15 @@
 > This project is built to fail  
 > (until it doesn't)
 
+## WARNING
+
+This script could potentially evolve to take control of your computer or delete the entire system
+since it can implement file-system access, install new modules or send data from your system to 3rd
+parties. It is unlikely that this happens, but we cannot estimate what AI will do in the future.
+There is also no moderation which is up to you as an individual.
+
+**Please respect the [LICENSE](LICENSE) of this project (AGPL-3.0)**
+
 ## Introducing a Revolutionary Generative Process
 
 Get ready to witness the future of software development! We present to you a revolutionary
