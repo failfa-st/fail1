@@ -25,8 +25,7 @@ creative problem-solving in software development like never before!
  */
 ```
 
-<img src="assets/example-01.png" alt="example-01.png" width="200"/>
-<img src="assets/example-02.png" alt="example-02.png" width="200"/>
+<img src="assets/example-01.png" alt="example-01.png" width="200"/><img src="assets/example-02.png" alt="example-02.png" width="200"/>
 
 **(Generation 3)**
 
@@ -40,11 +39,7 @@ creative problem-solving in software development like never before!
  */
 ```
 
-<img src="assets/example-03.png" alt="example-03.png" width="200"/>
-<img src="assets/example-04.png" alt="example-04.png" width="200"/>
-<img src="assets/example-05.png" alt="example-05.png" width="200"/>
-<img src="assets/example-06.png" alt="example-06.png" width="200"/>
-<img src="assets/example-07.png" alt="example-07.png" width="200"/>
+<img src="assets/example-03.png" alt="example-03.png" width="200"/><img src="assets/example-04.png" alt="example-04.png" width="200"/><img src="assets/example-05.png" alt="example-05.png" width="200"/><img src="assets/example-06.png" alt="example-06.png" width="200"/><img src="assets/example-07.png" alt="example-07.png" width="200"/>
 
 ## Rules
 
