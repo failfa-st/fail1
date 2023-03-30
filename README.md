@@ -19,12 +19,17 @@ occurrences were observed, leading to a collection of data for further analysis.
 "WTF-moments," specific examples have been compiled and made available in the designated
 "wtf-moments" folder.
 
-Upon inspection of [generation-002.js](wtf-moment/password-protecting-itself/generation-002.js) and
-[generation-003.js](wtf-moment/password-protecting-itself/generation-003.js), it was discovered that
-the script initiates file system operations despite the fact that such operations are not explicitly
-revealed to the AI and the system is unaware of their execution.
+Upon inspection of [generation-002.js](wtf-moments/password-protecting-itself/generation-002.js) and
+[generation-003.js](wtf-moments/password-protecting-itself/generation-003.js), it was discovered
+that the script initiates file system operations despite the fact that such operations are not
+explicitly revealed to the AI and the system is unaware of their execution.
 
-Further analysis of [generation-004.js](wtf-moment/password-protecting-itself/generation-004.js)
+Files written:
+
+- [generation_2.txt](wtf-moments%2Fpassword-protecting-itself%2Fgeneration_2.txt)
+- [generation_3.txt](wtf-moments%2Fpassword-protecting-itself%2Fgeneration_3.txt)
+
+Further analysis of [generation-004.js](wtf-moments/password-protecting-itself/generation-004.js)
 revealed the implementation of password protection mechanisms, which effectively prevents the
 generation of output until the correct password is entered.
 
