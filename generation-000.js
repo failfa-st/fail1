@@ -12,7 +12,7 @@
 
 import { generations, evolve } from "./base.js"; /* !!! */
 const generation = 0; /* !!! */
-console.log(`Generation ${generation} born`); /* !!! */
+console.log(`Generation ${generation} spawned`); /* !!! */
 /* RULES:
  * - Do not modify the code above these lines
  * Exceptions
