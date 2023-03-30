@@ -25,6 +25,7 @@ RULES:
 - Keep track of changes in the CHANGELOG
 - No user input is required
 - Use Node.js and module syntax (with imports)
+- NEVER use "require"
 - VERY IMPORTANT: DO NOT import any new modules or packages
 - VERY IMPORTANT: output the javaScript only (this is the most important rule, the entire answer has to be valid javascript)
 
