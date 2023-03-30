@@ -3,18 +3,19 @@
   "version": "1.0.0",
   "type": "module",
   "description": "",
-  "main": "generation-000.js",
+  "main": "training/rpc/generation-000.js",
   "keywords": [],
   "author": "",
   "license": "AGPL",
   "scripts": {
-    "start": "node generation-000.js"
+    "start": "node training/rpc/generation-000.js"
   },
   "devDependencies": {
     "prettier": "^2.8.7"
   },
   "dependencies": {
+    "dotenv": "16.0.3",
     "openai": "3.2.1",
-    "dotenv": "16.0.3"
+    "ora": "^6.3.0"
   }
 }
