@@ -5,9 +5,16 @@
 
 ## About this project
 
-This project is designed to showcase the power of evolution in generating increasingly sophisticated code over time. The statement "This project is built to fail (until it doesn't)" refers to the fact that the initial generations may fail, but through the process of evolution, the code will ultimately succeed.
+This project is designed to showcase the power of evolution in generating increasingly sophisticated
+code over time. The statement "This project is built to fail (until it doesn't)" refers to the fact
+that the initial generations may fail, but through the process of evolution, the code will
+ultimately succeed.
 
-The main objective of this project is to create a species of code that understands the concept of evolution and can produce offspring that are better adapted to their environment. In the case of a generation failing to produce a successful offspring, the parent will be used to create a new version in the hopes of producing a successful code generation.
+The main objective of this project is to create a species of code that understands the concept of
+evolution and can produce offspring that are better adapted to their environment. In the case of a
+generation failing to produce a successful offspring, the parent will be used to create a new
+version in the hopes of producing a successful code generation.
+
 ## Basics
 
 The provided code consists of two files, "base.js" and "generation-000.js". The "base.js" file
