@@ -106,3 +106,10 @@ previous one. The process follows strict rules defined in the comments of the co
 the code produced is valid and meets the desired criteria. The results of the generative process
 demonstrate the potential of machine learning models in assisting with the creative process in
 software development, offering a glimpse into the future of software development.
+
+## Credits
+
+The code and documentation of this project is generated with AI through guidance by a human. The
+code has been adjusted by a human with the help of AI.
+
+Ideas for new concepts or improvement are made with the help of AI (often without success).
