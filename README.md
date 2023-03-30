@@ -3,66 +3,60 @@
 > This project is built to fail  
 > (until it doesn't)
 
-## About this project
+## Introducing a Revolutionary Generative Process
 
-This project is designed to showcase the power of evolution in generating increasingly sophisticated
-code over time. The statement "This project is built to fail (until it doesn't)" refers to the fact
-that the initial generations may fail, but through the process of evolution, the code will
-ultimately succeed.
-
-The main objective of this project is to create a species of code that understands the concept of
-evolution and can produce offspring that are better adapted to their environment. In the case of a
-generation failing to produce a successful offspring, the parent will be used to create a new
-version in the hopes of producing a successful code generation.
-
-## Basics
-
-The provided code consists of two files, "base.js" and "generation-000.js". The "base.js" file
-contains the core logic of the program, while "generation-000.js" is the starting point of the
-evolution process.
-
-## Configuration
-
-In "base.js", the program imports the required modules and defines the necessary configuration for
-making API calls to OpenAI. It also defines a function "createMessage" that returns a message
-template with specific rules to follow for evolving the code. The function "evolve" is responsible
-for generating a new code by calling the OpenAI API and writing the generated code to a file with a
-specific filename pattern. The program also exports a constant "generations" that defines the
-maximum number of evolutions that the program will run.
-
-## Evolution
-
-In "generation-000.js", the program imports the necessary modules and constants from "base.js". It
-sets the current generation to 0 and the next generation to 1. The program then reads the code from
-the file with the filename that matches the current generation, and passes it to the "evolve"
-function along with the next generation number. If the current generation is less than the maximum
-number of generations defined in "base.js", the program will generate a new code and continue to the
-next generation until the maximum number of generations is reached.
+Get ready to witness the future of software development! We present to you a revolutionary
+generative process that utilizes OpenAI's powerful GPT-3.5 language model. By following strict rules
+defined in the code, this process creates a series of JavaScript files, each building upon the
+previous one, all with the goal of writing a mandelbrot function that draws ASCII and logs the
+output in each generation. Witness the incredible potential of machine learning in assisting with
+creative problem-solving in software development like never before!
 
 ## Rules
 
-The program follows strict rules that must be respected at all times, as outlined in the comments in
-both files. The goal is to evolve the code while respecting the rules and without breaking the
-existing code. The program uses the OpenAI API to generate new code and write it to files, which are
-then imported and executed in subsequent generations.
+The generative process implemented by the JavaScript files base.js and generation-000.js follows
+strict rules that must be respected at all times. These rules are outlined in the comments in both
+files and serve as guidelines for extending the code. The goal of the generative process is to
+evolve the code while respecting the rules and without breaking the existing code.
 
-## Changelog
+The process uses the OpenAI API to generate new code and writes it to files, which are then imported
+and executed in subsequent generations. The rules are designed to ensure that the code produced by
+the generative process remains consistent and valid while allowing for creative flexibility in
+achieving the ultimate goal of creating a mandelbrot function that draws ASCII and logs the output
+to the console in each generation.
 
-In "base.js", one of the rules states to "Keep track of changes in the CHANGELOG." This means that
-the program should maintain a changelog that tracks all the changes made to the code with each new
-generation. The "generation-000.js" file already includes a simple changelog that lists the initial
-implementation of the program. The purpose of this rule is to ensure that the program's evolution
-can be tracked and managed over time, which can help with debugging and troubleshooting if any
-issues arise. By keeping a record of all changes, it is easier to identify when a particular problem
-started and what may have caused it.
+## Exceptions
+
+Despite the strict rules, the generative process also allows for exceptions, which have a higher
+weight than the rules. These exceptions are meant to provide flexibility in the creative process
+while still working towards the ultimate goal of creating a mandelbrot function that draws ASCII and
+logs the output to the console in each generation.
 
 ## Goal
 
-Please note that the GOAL mentioned in "generation-000.js" is an example and can be adjusted as
-needed. The program's objective is to continuously evolve the code by generating new versions based
-on the existing code, while adhering to the rules set forth in "base.js". The program is designed to
-use the OpenAI API to generate new code, which means that it will rely on the AI's own opinions and
-capabilities to determine how the code should evolve. The program is not limited to any specific
-goal or output, but is intended to develop and improve the code over time. By following the rules
-and leveraging the power of the OpenAI API, the program can generate increasingly sophisticated code
-with each new generation.
+The goal of the generative process is to create a mandelbrot function that draws ASCII and logs the
+output to the console in each generation. The process generates a series of JavaScript files, each
+building upon the previous one while ensuring that the rules are followed.
+
+## Changelog
+
+To keep track of changes made to the code during the generative process, a CHANGELOG is maintained.
+Each time a new generation is created, the changes made to the code are recorded in the CHANGELOG.
+
+## Evolution
+
+The generative process creates a series of JavaScript files, each building upon the previous one.
+The process is driven by the OpenAI GPT-3.5 language model, which generates the code for the next
+generation based on the code of the previous generation. The evolve function defined in the base.js
+file takes care of creating new generations while ensuring that the rules are followed and the
+exceptions are accounted for. The process stops after five generations, or when the goal is
+achieved.
+
+## Conclusion
+
+The generative process implemented by the JavaScript files base.js and generation-000.js utilizes
+OpenAI's GPT-3.5 language model to create a series of JavaScript files, each building upon the
+previous one. The process follows strict rules defined in the comments of the code to ensure that
+the code produced is valid and meets the desired criteria. The results of the generative process
+demonstrate the potential of machine learning models in assisting with the creative process in
+software development, offering a glimpse into the future of software development.
