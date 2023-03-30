@@ -76,6 +76,14 @@ The goal of the generative process is to create a mandelbrot function that draws
 output to the console in each generation. The process generates a series of JavaScript files, each
 building upon the previous one while ensuring that the rules are followed.
 
+**The goal can be adjusted**. We chose the mandelbrot algorithm since it works well to demonstrate
+the creativity aspect and reasoning behind decisions made by the AI.
+
+The AI itself is able to adjust the goal and has done so numerous times in our tests. In the same
+way it has already hacked the code to allow more generations than we allowed. When we asked it to
+"STAY ALIVE" it implemented a frame based animation (a loading spinner) that continue to run until
+we stopped it manually.
+
 ## Changelog
 
 To keep track of changes made to the code during the generative process, a CHANGELOG is maintained.
