@@ -42,7 +42,7 @@ const persona = `programmer with the following characteristics:
 - Animation enthusiast
 `;
 
-export const generations = 9;
+export const generations = 5;
 const maxTries = 3;
 let tries = 0;
 

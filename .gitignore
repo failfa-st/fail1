@@ -108,7 +108,7 @@ training
 
 #
 /generation-*
-/!generation-000.js
+!/generation-000.js
 
 # IntelliJ
 .idea
