@@ -14,6 +14,24 @@ There is also no moderation which is up to you as an individual.
 
 <img src="assets/example-08.png" alt="example-08.png" width="296"/>
 
+Throughout the iterative process of script development, several noteworthy and unexpected
+occurrences were observed, leading to a collection of data for further analysis. In light of these
+"WTF-moments," specific examples have been compiled and made available in the designated
+"wtf-moments" folder.
+
+Upon inspection of [generation-002.js](wtf-moment/password-protecting-itself/generation-002.js) and
+[generation-003.js](wtf-moment/password-protecting-itself/generation-003.js), it was discovered that
+the script initiates file system operations despite the fact that such operations are not explicitly
+revealed to the AI and the system is unaware of their execution.
+
+Further analysis of [generation-004.js](wtf-moment/password-protecting-itself/generation-004.js)
+revealed the implementation of password protection mechanisms, which effectively prevents the
+generation of output until the correct password is entered.
+
+These observations have significant implications for the development and testing of AI-based
+systems, and highlight the importance of careful monitoring and testing throughout the development
+lifecycle to identify and address potential issues and vulnerabilities.
+
 ## Introducing a Revolutionary Generative Process
 
 Get ready to witness the future of software development! We present to you a revolutionary
