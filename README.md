@@ -1,5 +1,7 @@
 # Fail 1
 
+**Please respect the [LICENSE](LICENSE) of this project (AGPL-3.0)**
+
 > This project is built to fail  
 > (until it doesn't)
 
@@ -10,7 +12,7 @@ since it can implement file-system access, install new modules or send data from
 parties. It is unlikely that this happens, but we cannot estimate what AI will do in the future.
 There is also no moderation which is up to you as an individual.
 
-**Please respect the [LICENSE](LICENSE) of this project (AGPL-3.0)**
+<img src="assets/example-08.png" alt="example-08.png" width="296"/>
 
 ## Introducing a Revolutionary Generative Process
 
