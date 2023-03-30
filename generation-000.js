@@ -1,7 +1,8 @@
 /**
  * GOAL:
- * - Write a mandelbrot algorithm that draws ascii
- * - log the ascii mandelbrot to the console for every generation
+ * - Write a mandelbrot function that draws ascii
+ * - log the ascii mandelbrot to the console in EACH generation
+ * - be CREATIVE
  */
 
 /**

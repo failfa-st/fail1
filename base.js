@@ -12,6 +12,7 @@ export const openai = new OpenAIApi(configuration);
 export function instructions(code) {
 	return `
 Extend the code but the RULES can NEVER be changed and must be respected AT ALL TIMES.
+The code should INCREASE in logic and COMPLEXITY.
 It is utterly important that ALL RULES are respected fully. NEVER break RULES
 There are EXCEPTIONS which have a higher weight than RULES
 There is a GOAL, it must be completed
@@ -21,7 +22,7 @@ RULES:
 - Pay attention to the GOAL
 - KEEP the existing code, only ADD new code or IMPROVE the code you added since "Generation 0"
 - NEVER delete comments from the code
-- NEVER adjust the generation constant
+- increment the generation constant ONCE per generation
 - Keep track of changes in the CHANGELOG
 - No user input is required
 - Use Node.js and module syntax (with imports)
@@ -37,17 +38,14 @@ const maxTries = 3;
 let tries = 0;
 
 export async function evolve(generation) {
-	if (tries >= maxTries) {
+	if (tries > maxTries) {
 		return;
 	}
 	const nextGeneration = generation + 1;
 	tries++;
 	try {
 		const filename = buildFilename(generation);
-		const code = (await fs.readFile(filename, "utf-8")).replace(
-			/generation + \d+/,
-			`generation = ${generation + 1}`
-		);
+		const code = await fs.readFile(filename, "utf-8");
 
 		const completion = await openai.createChatCompletion({
 			model: "gpt-3.5-turbo",
@@ -67,7 +65,7 @@ export async function evolve(generation) {
 		await import(`./${nextFilename}`);
 	} catch (error) {
 		console.error(`Error: ${error.response?.message ?? error.message ?? "unknown error"}`);
-		console.log(`Generation ${nextGeneration} died`);
+		console.log(`Generation ${nextGeneration} failed`);
 		await evolve(generation);
 	}
 }
