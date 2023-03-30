@@ -37,14 +37,32 @@ These observations have significant implications for the development and testing
 systems, and highlight the importance of careful monitoring and testing throughout the development
 lifecycle to identify and address potential issues and vulnerabilities.
 
-## Introducing a Revolutionary Generative Process
+## Software as we know it is about to change
 
-Get ready to witness the future of software development! We present to you a revolutionary
-generative process that utilizes OpenAI's powerful GPT-3.5 language model. By following strict rules
-defined in the code, this process creates a series of JavaScript files, each building upon the
-previous one, all with the goal of writing a mandelbrot function that draws ASCII and logs the
-output in each generation. Witness the incredible potential of machine learning in assisting with
-creative problem-solving in software development like never before!
+Have you ever wanted to create a cool text-based RPG game or tool in the console, but didn't know
+where to start? Well, with the power of OpenAI's GPT-3.5 language model and a set of strict rules,
+now anyone can create incredible projects with ease.
+
+At its core, this generative process uses the OpenAI API to create a series of JavaScript files,
+each building upon the previous one. By following the rules outlined in the comments of the code,
+the process ensures that the code produced is valid and meets the desired criteria.
+
+One example of a project that can be created through this generative process is a mandelbrot
+function that draws ASCII and logs the output in each generation. But that's just scratching the
+surface. The possibilities are endless, and the only limit is your imagination.
+
+The persona used in the code can have a big impact on how the project is built. For example, a
+creative programmer with a design-driven and animation enthusiast mindset can lead to the creation
+of incredible text-based games and tools that are both visually stunning and highly functional.
+
+But the best part is that anyone can do it. You don't need to be an innovative genius or a coding
+expert to use this process. By following the rules and letting the power of AI do the heavy lifting,
+even those with limited coding experience can create amazing projects.
+
+So, whether you're an experienced coder or just starting out, this generative process is a
+groundbreaking and exciting way to explore the possibilities of machine learning in the world of
+software development. Try it out for yourself and see where your imagination takes you. The future
+of software development is at your fingertips.
 
 ## Examples
 
@@ -74,26 +92,6 @@ creative problem-solving in software development like never before!
 ```
 
 <img src="assets/example-03.png" alt="example-03.png" width="200"/><img src="assets/example-04.png" alt="example-04.png" width="200"/><img src="assets/example-05.png" alt="example-05.png" width="200"/><img src="assets/example-06.png" alt="example-06.png" width="200"/><img src="assets/example-07.png" alt="example-07.png" width="200"/>
-
-## Rules
-
-The generative process implemented by the JavaScript files base.js and generation-000.js follows
-strict rules that must be respected at all times. These rules are outlined in the comments in both
-files and serve as guidelines for extending the code. The goal of the generative process is to
-evolve the code while respecting the rules and without breaking the existing code.
-
-The process uses the OpenAI API to generate new code and writes it to files, which are then imported
-and executed in subsequent generations. The rules are designed to ensure that the code produced by
-the generative process remains consistent and valid while allowing for creative flexibility in
-achieving the ultimate goal of creating a mandelbrot function that draws ASCII and logs the output
-to the console in each generation.
-
-## Exceptions
-
-Despite the strict rules, the generative process also allows for exceptions, which have a higher
-weight than the rules. These exceptions are meant to provide flexibility in the creative process
-while still working towards the ultimate goal of creating a mandelbrot function that draws ASCII and
-logs the output to the console in each generation.
 
 ## Goal
 
