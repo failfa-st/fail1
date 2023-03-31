@@ -10,10 +10,11 @@
 - [Introduction](#introduction)
 - [Software as we know it is about to change](#software-as-we-know-it-is-about-to-change)
 - [Usage](#usage)
-  - [Step 1: Install Dependencies](#step-1-install-dependencies)
-  - [Step 2: Add your API key](#step-2-add-your-api-key)
-  - [Step 3: Run the First Generation](#step-3-run-the-first-generation)
-  - [Step 4: Explore the Results](#step-4-explore-the-results)
+  * [Step 1: Install Dependencies](#step-1-install-dependencies)
+  * [Step 2: Add your API key](#step-2-add-your-api-key)
+  * [Step 3: Run the First Generation](#step-3-run-the-first-generation)
+  * [Step 4: Explore the Results](#step-4-explore-the-results)
+- [Options](#options)
 - [Examples](#examples)
 - [Goal](#goal)
 - [Changelog](#changelog)
@@ -21,6 +22,7 @@
 - [Conclusion](#conclusion)
 - [Credits](#credits)
 - [WARNING](#warning)
+- [Older Examples](#older-examples)
 
 <!-- tocstop -->
 
