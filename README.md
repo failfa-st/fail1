@@ -179,7 +179,8 @@ options to explore the full potential of the generative process and unlock your 
 
 To use these options, you can pass them to the CLI command when running the generative process.
 Here's an example command that sets the goal to "text-based console RPG game", the number of
-generations to 5, and the persona to "animation enthusiast, design-driven, detail-oriented":
+generations to 5, and the persona to "rpg enthusiast, creative, expert node.js developer,
+detail-oriented":
 
 ```shell
 node generation-000.js -G "text-based console RPG game" -g 5 -p "rpg enthusiast, creative, expert node.js developer, detail-oriented"
