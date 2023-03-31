@@ -85,7 +85,7 @@ add your API key as an environmental variable to the `.env` file.
 Run this command to start the generative process:
 
 ```shell
-node generation-000.js --goal 'your goal here' --generations 4 --persona "your persona here"
+node generation-000.js --goal 'your goal here' --persona "your persona here"
 ```
 
 With this generative process, you can customize your desired goal, the number of generations, and
@@ -139,7 +139,7 @@ Here are some examples of projects that can be created using our generative proc
 --goal "A Mandelbrot set generator with ASCII output"
 ```
 
-[Try mandebrot-zoom](wtf-moments/mandebrot-zoom)
+[Try mandelbrot-zoom](wtf-moments/mandelbrot-zoom)
 
 These are just a few examples of what can be achieved using our tool. With your creativity and our
 generative process, the possibilities are endless!
@@ -214,7 +214,7 @@ ahead and give it a try!
  */
 ```
 
-Try the interactive [mandebrot-zoom](wtf-moments/mandebrot-zoom)
+Try the interactive [mandebrot-zoom](wtf-moments/mandelbrot-zoom)
 
 ```shell
 ❯ node generation-005.js -g 5
