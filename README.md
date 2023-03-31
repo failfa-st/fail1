@@ -32,30 +32,34 @@ needing a ton of coding experience. Get started today and unleash your creativit
 
 ## Software as we know it is about to change
 
-Have you ever wanted to create a cool text-based RPG game or tool in the console, but didn't know
-where to start? Well, with the power of OpenAI's GPT-3.5 language model and a set of strict rules,
-now anyone can create incredible projects with ease.
+As a developer, it's always exciting to explore new ways to create innovative projects. And that's
+exactly what our generative process, powered by OpenAI's GPT-3.5 language model, offers.
 
-At its core, this generative process uses the OpenAI API to create a series of JavaScript files,
-each building upon the previous one. By following the rules outlined in the comments of the code,
-the process ensures that the code produced is valid and meets the desired criteria.
+Our tool allows you to create a wide range of JavaScript projects with ease, regardless of your
+coding experience. With the help of some simple configurations, you can create anything from
+interactive tools to text-based games and beyond.
+
+One of the most exciting aspects of our generative process is that it uses the power of AI to
+generate the code for your projects. The process creates a series of JavaScript files that build
+upon the previous one, ensuring that the code produced is valid and meets the desired criteria.
+
+To get started, all you need to do is follow some simple steps. Install the project's dependencies,
+add your API key, and run the first generation. From there, you can explore the results and continue
+to adjust and refine the code until you achieve your desired outcome.
+
+The process is highly customizable, allowing you to adjust the goal, number of generations, and
+persona to suit your unique needs. The persona used in the code can have a significant impact on how
+the project is built, ensuring that the code produced is tailored to your requirements.
 
 One example of a project that can be created through this generative process is a mandelbrot
-function that draws ASCII and logs the output in each generation. But that's just scratching the
-surface. The possibilities are endless, and the only limit is your imagination.
+function that draws ASCII and logs the output in each generation. But that's just one of many
+possibilities. With your creativity and our generative process, the possibilities are endless.
 
-The persona used in the code can have a big impact on how the project is built. For example, a
-creative programmer with a design-driven and animation enthusiast mindset can lead to the creation
-of incredible text-based games and tools that are both visually stunning and highly functional.
-
-But the best part is that anyone can do it. You don't need to be an innovative genius or a coding
-expert to use this process. By following the rules and letting the power of AI do the heavy lifting,
-even those with limited coding experience can create amazing projects.
-
-So, whether you're an experienced coder or just starting out, this generative process is a
-groundbreaking and exciting way to explore the possibilities of machine learning in the world of
-software development. Try it out for yourself and see where your imagination takes you. The future
-of software development is at your fingertips.
+At its core, our generative process is an exciting and innovative way to explore the potential of
+machine learning models in the world of software development. It's a groundbreaking tool that offers
+new opportunities for creativity and exploration. So, whether you're an experienced coder or just
+starting out, give it a try and see where your imagination takes you. The future of software
+development is at your fingertips.
 
 ## Usage
 
@@ -109,6 +113,8 @@ Here are some examples of projects that can be created using our generative proc
 --goal "A console-based chatbot for interacting with users"
 ```
 
+[Try chatbot](wtf-moments/chatbot)
+
 ```shell
 --goal "A command-line tool for generating random passwords"
 ```
@@ -116,6 +122,8 @@ Here are some examples of projects that can be created using our generative proc
 ```shell
 --goal "A calculator application running in the console"
 ```
+
+[Try calculator](wtf-moments/calculator)
 
 ```shell
 --goal "A unit conversion tool for the command line"
@@ -128,6 +136,8 @@ Here are some examples of projects that can be created using our generative proc
 ```shell
 --goal "A Mandelbrot set generator with ASCII output"
 ```
+
+[Try mandebrot-zoom](wtf-moments/mandebrot-zoom)
 
 These are just a few examples of what can be achieved using our tool. With your creativity and our
 generative process, the possibilities are endless!
@@ -143,6 +153,29 @@ node generation-004.js --generations 4
 
 The generative process offers endless possibilities for creating unique JavaScript programs. Give it
 a try and see where your imagination takes you!
+
+## Options
+
+This is a list of the available CLI options for this tool:
+
+- `--goal` or `-G`: This option is used to specify the desired end goal of your generative project.
+  The default goal is to create a Mandelbrot algorithm that outputs ASCII to the console in a 90
+  columns \* 30 rows grid. You can change this option to any goal that suits your needs.
+- `--generations` or `-g`: This option specifies the number of generations that will be created by
+  the generative process. The default is 5 generations. You can adjust this number to create more or
+  fewer generations.
+- `--persona` or `-p`: This option is used to set the persona for the generative process. A persona
+  is a set of traits that determine how the generative process will create your project. The default
+  persona includes traits such as expert developer, creative, art enthusiast, gamer, and visionary.
+  You can customize this persona to better fit your project's requirements.
+
+Each option has an alias which can be used as a shorthand for the full option name. For example,
+`-G` is the shorthand for `--goal`, and `-g` is the shorthand for `--generations`. By default, the
+tool will use the values specified in the default property of each option. However, you can
+overwrite these defaults by passing in new values when running the tool.
+
+Overall, these CLI options give you the flexibility to customize the generative process to suit your
+needs, whether you're an expert developer or a beginner looking to create something innovative.
 
 ## Examples
 
