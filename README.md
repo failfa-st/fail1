@@ -138,7 +138,7 @@ After the process completes, examine the JavaScript files created or run the fin
 this command: (for 4 generations)
 
 ```shell
-node generation-004.js
+node generation-004.js --generations 4
 ```
 
 The generative process offers endless possibilities for creating unique JavaScript programs. Give it
