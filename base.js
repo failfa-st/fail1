@@ -1,8 +1,32 @@
+import process from "node:process";
 import fs from "node:fs/promises";
 import { config } from "dotenv";
+import meow from "meow";
 import { Configuration, OpenAIApi } from "openai";
 import ora from "ora";
 config();
+
+const { flags } = meow("", {
+	importMeta: import.meta,
+	flags: {
+		goal: {
+			type: "string",
+			alias: "G",
+			default:
+				"mandelbrot algorithm that outputs ascii to the console in a 90 columns * 30 rows grid",
+		},
+		generations: {
+			type: "number",
+			alias: "g",
+			default: 5,
+		},
+		persona: {
+			type: "string",
+			alias: "p",
+			default: "expert developer, creative, art enthusiast, gamer, visionary",
+		},
+	},
+});
 
 const spinner = ora("Working");
 
@@ -19,12 +43,12 @@ It is utterly important that ALL RULES are respected fully. NEVER break RULES
 There are EXCEPTIONS which have a higher weight than RULES
 There is a GOAL, it must be completed
 
+GOAL: ${flags.goal}
+
 RULES:
 - Pay special attention TO ALL UPPERCASE words
 - Pay attention to the GOAL and EXTEND it
 - KEEP the existing code, only ADD new code or improve the code you added since "Generation 0"
-- NEVER delete comments from the code
-- KEEP comments from the code
 - increment the generation constant ONCE per generation
 - Keep track of changes in the CHANGELOG
 - DO NOT use Browser APIs (Node.js only)
@@ -35,14 +59,10 @@ RULES:
 - NEVER explain anything
 - VERY IMPORTANT: output the javaScript only (this is the most important rule, the entire answer has to be valid javascript)
 `;
-const persona = `programmer with the following characteristics:
-- Creative
-- Expert level
-- Design driven
-- Animation enthusiast
-`;
 
-export const generations = 5;
+const persona = `programmer with the following characteristics: ${flags.persona}`;
+
+export const generations = flags.generations;
 const maxTries = 3;
 let tries = 0;
 
@@ -56,7 +76,7 @@ export async function evolve(generation, history = [], error) {
 	try {
 		const filename = buildFilename(generation);
 		const code = await fs.readFile(filename, "utf-8");
-		spinner.start();
+		spinner.start("Working");
 		history.push({
 			role: "user",
 			content: error ? `An error occurred: ${error} in this code: ${code}` : code,
@@ -78,8 +98,8 @@ export async function evolve(generation, history = [], error) {
 		const { content } = completion.data.choices[0].message;
 		const nextFilename = buildFilename(nextGeneration);
 		await fs.writeFile(nextFilename, content);
-		console.log(`Generation ${nextGeneration} created`);
-		console.log(`Spawning ${nextFilename}`);
+		spinner.text = `Generation ${nextGeneration} created`;
+		spinner.text = `Spawning ${nextFilename}`;
 		await import(`./${nextFilename}`);
 	} catch (error) {
 		const message = (error.response?.message ?? error.message ?? "unknown error").trim();
@@ -88,7 +108,7 @@ export async function evolve(generation, history = [], error) {
 		if (message.startsWith("ENOENT") && generation > 1) {
 			await evolve(generation - 1);
 		} else {
-			console.log(`Generation ${nextGeneration} failed`);
+			spinner.text = `Generation ${nextGeneration} failed`;
 			await evolve(generation, history, error);
 		}
 	}
