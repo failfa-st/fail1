@@ -159,7 +159,7 @@ a try and see where your imagination takes you!
  */
 ```
 
-Try the interactive [mandebrot-zoom](wtf-moments%2Fmandebrot-zoom)
+Try the interactive [mandebrot-zoom](wtf-moments/mandebrot-zoom)
 
 ```shell
 ❯ node generation-005.js -g 5
@@ -170,6 +170,31 @@ Enter number of iterations (1-1000): 1000
 ```
 
 <img src="assets/example-09.png" alt="example-01.png" width="600"/>
+
+Try the interactive [calculator](wtf-moments/calculator)
+
+```shell
+❯ node generation-003.js -g 3
+Welcome to the CALCULATOR!
+Please enter your calculations in the following format: number operator number
+Supported operators: +, -, *, /
+Example: 2 + 3
+To save calculations, type 'save'
+To load calculations, type 'load'
+To exit, type 'exit'
+400 + 20
+Result: 420
+save
+Calculations saved to file!
+load
+Calculations loaded from file:
+400 + 20 = 420
+exit
+Exiting calculator...
+Calculations performed:
+400 + 20 = 420
+
+```
 
 ## Goal
 
