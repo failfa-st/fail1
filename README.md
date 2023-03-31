@@ -161,21 +161,21 @@ a try and see where your imagination takes you!
 The following are the command-line interface (CLI) options available when running the generative
 process:
 
-`-G`, `--goal`: Sets the desired goal for the generative process. The default is a mandelbrot
-algorithm that outputs ASCII to the console in a 90 columns \* 30 rows grid. `-g`, `--generations`:
-Sets the number of generations that will be created by the generative process. The default is 3.
-`-p`, `--persona`: Sets the persona or profile for the generative process. This can include factors
-such as expertise level, creativity, and interests. The default is an expert Node.js developer with
-a creative mindset. `-t`, `--temperature`: Sets the temperature parameter for the OpenAI API. This
-controls the "creativity" of the generative process, with higher temperatures resulting in more
-unpredictable output. The default is 0.2.
+- `-G`, `--goal`: Sets the desired goal for the generative process. The default is a mandelbrot
+  algorithm that outputs ASCII to the console in a 90 columns \* 30 rows grid.
+- `-g`, `--generations`: Sets the number of generations that will be created by the generative
+  process. The default is 3.
+- `-p`, `--persona`: Sets the persona or profile for the generative process. This can include
+  factors such as expertise level, creativity, and interests. The default is an expert Node.js
+  developer with a creative mindset.
+- `-t`, `--temperature`: Sets the temperature parameter for the OpenAI API. This controls the
+  "creativity" of the generative process, with higher temperatures resulting in more unpredictable
+  output. The default is 0.2.
 
 These options allow you to customize the generative process to better suit your needs and
 preferences. For example, you can set a specific goal for the generative process, adjust the number
 of generations to generate, and even fine-tune the "creativity" level of the output. Use these
 options to explore the full potential of the generative process and unlock your creativity.
-
-Example: `--persona "rpg enthusiast, creative, expert node.js developer, detail-oriented"`
 
 To use these options, you can pass them to the CLI command when running the generative process.
 Here's an example command that sets the goal to "text-based console RPG game", the number of
@@ -184,9 +184,6 @@ generations to 5, and the persona to "animation enthusiast, design-driven, detai
 ```shell
 node generation-000.js -G "text-based console RPG game" -g 5 -p "rpg enthusiast, creative, expert node.js developer, detail-oriented"
 ```
-
-By using these options, you can customize the generative process to suit your specific needs and
-preferences.
 
 ### Learn JavaScript
 
