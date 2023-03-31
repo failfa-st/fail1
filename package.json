@@ -8,7 +8,8 @@
   "author": "",
   "license": "AGPL",
   "scripts": {
-    "start": "node generation-000.js"
+    "start": "node generation-000.js",
+    "toc": "npx markdown-toc README.md -i"
   },
   "devDependencies": {
     "prettier": "^2.8.7"

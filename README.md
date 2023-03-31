@@ -5,6 +5,25 @@
 > This project is built to fail  
 > (until it doesn't)
 
+<!-- toc -->
+
+- [Introduction](#introduction)
+- [Software as we know it is about to change](#software-as-we-know-it-is-about-to-change)
+- [Usage](#usage)
+  * [Step 1: Install Dependencies](#step-1-install-dependencies)
+  * [Step 2: Add your API key](#step-2-add-your-api-key)
+  * [Step 3: Run the First Generation](#step-3-run-the-first-generation)
+  * [Step 4: Explore the Results](#step-4-explore-the-results)
+- [Examples](#examples)
+- [Goal](#goal)
+- [Changelog](#changelog)
+- [Evolution](#evolution)
+- [Conclusion](#conclusion)
+- [Credits](#credits)
+- [WARNING](#warning)
+
+<!-- tocstop -->
+
 ## Introduction
 
 Check out our generative process powered by OpenAI's GPT-3.5 language model for easy creation of
