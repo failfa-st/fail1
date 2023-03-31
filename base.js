@@ -18,12 +18,17 @@ const { flags } = meow("", {
 		generations: {
 			type: "number",
 			alias: "g",
-			default: 5,
+			default: 3,
 		},
 		persona: {
 			type: "string",
 			alias: "p",
-			default: "expert developer, creative, art enthusiast, gamer, visionary",
+			default: "expert node.js developer, creative",
+		},
+		temperature: {
+			type: "number",
+			alias: "t",
+			default: 0.2,
 		},
 	},
 });
@@ -102,7 +107,7 @@ RULES:
 				...history,
 			],
 			max_tokens: 2000,
-			temperature: 0.2,
+			temperature: flags.temperature,
 		});
 		spinner.stop();
 		const { content } = completion.data.choices[0].message;

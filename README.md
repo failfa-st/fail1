@@ -10,10 +10,10 @@
 - [Introduction](#introduction)
 - [Software as we know it is about to change](#software-as-we-know-it-is-about-to-change)
 - [Usage](#usage)
-  * [Step 1: Install Dependencies](#step-1-install-dependencies)
-  * [Step 2: Add your API key](#step-2-add-your-api-key)
-  * [Step 3: Run the First Generation](#step-3-run-the-first-generation)
-  * [Step 4: Explore the Results](#step-4-explore-the-results)
+  - [Step 1: Install Dependencies](#step-1-install-dependencies)
+  - [Step 2: Add your API key](#step-2-add-your-api-key)
+  - [Step 3: Run the First Generation](#step-3-run-the-first-generation)
+  - [Step 4: Explore the Results](#step-4-explore-the-results)
 - [Options](#options)
 - [Examples](#examples)
 - [Goal](#goal)
@@ -158,26 +158,48 @@ a try and see where your imagination takes you!
 
 ## Options
 
-This is a list of the available CLI options for this tool:
+The following are the command-line interface (CLI) options available when running the generative
+process:
 
-- `--goal` or `-G`: This option is used to specify the desired end goal of your generative project.
-  The default goal is to create a Mandelbrot algorithm that outputs ASCII to the console in a 90
-  columns \* 30 rows grid. You can change this option to any goal that suits your needs.
-- `--generations` or `-g`: This option specifies the number of generations that will be created by
-  the generative process. The default is 5 generations. You can adjust this number to create more or
-  fewer generations.
-- `--persona` or `-p`: This option is used to set the persona for the generative process. A persona
-  is a set of traits that determine how the generative process will create your project. The default
-  persona includes traits such as expert developer, creative, art enthusiast, gamer, and visionary.
-  You can customize this persona to better fit your project's requirements.
+`-G`, `--goal`: Sets the desired goal for the generative process. The default is a mandelbrot
+algorithm that outputs ASCII to the console in a 90 columns \* 30 rows grid. `-g`, `--generations`:
+Sets the number of generations that will be created by the generative process. The default is 3.
+`-p`, `--persona`: Sets the persona or profile for the generative process. This can include factors
+such as expertise level, creativity, and interests. The default is an expert Node.js developer with
+a creative mindset. `-t`, `--temperature`: Sets the temperature parameter for the OpenAI API. This
+controls the "creativity" of the generative process, with higher temperatures resulting in more
+unpredictable output. The default is 0.2.
 
-Each option has an alias which can be used as a shorthand for the full option name. For example,
-`-G` is the shorthand for `--goal`, and `-g` is the shorthand for `--generations`. By default, the
-tool will use the values specified in the default property of each option. However, you can
-overwrite these defaults by passing in new values when running the tool.
+These options allow you to customize the generative process to better suit your needs and
+preferences. For example, you can set a specific goal for the generative process, adjust the number
+of generations to generate, and even fine-tune the "creativity" level of the output. Use these
+options to explore the full potential of the generative process and unlock your creativity.
 
-Overall, these CLI options give you the flexibility to customize the generative process to suit your
-needs, whether you're an expert developer or a beginner looking to create something innovative.
+Example: `--persona "rpg enthusiast, creative, expert node.js developer, detail-oriented"`
+
+To use these options, you can pass them to the CLI command when running the generative process.
+Here's an example command that sets the goal to "text-based console RPG game", the number of
+generations to 5, and the persona to "animation enthusiast, design-driven, detail-oriented":
+
+```shell
+node generation-000.js -G "text-based console RPG game" -g 5 -p "rpg enthusiast, creative, expert node.js developer, detail-oriented"
+```
+
+By using these options, you can customize the generative process to suit your specific needs and
+preferences.
+
+### Learn JavaScript
+
+If you're eager to learn, this is the perfect opportunity for you! Simply run the following command
+in your shell:
+
+```shell
+node generation-000.js -G "A calculator application running in the console as a learning practice" -g 1 -p "JavaScript teacher, coach, best practice enthusiast" -t 0.8
+```
+
+This will generate a calculator application that runs in the console, and it's tailored towards
+those who are new to JavaScript development and have a keen eye for detail and documentation. So go
+ahead and give it a try!
 
 ## Examples
 
