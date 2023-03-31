@@ -10,10 +10,10 @@
 - [Introduction](#introduction)
 - [Software as we know it is about to change](#software-as-we-know-it-is-about-to-change)
 - [Usage](#usage)
-  * [Step 1: Install Dependencies](#step-1-install-dependencies)
-  * [Step 2: Add your API key](#step-2-add-your-api-key)
-  * [Step 3: Run the First Generation](#step-3-run-the-first-generation)
-  * [Step 4: Explore the Results](#step-4-explore-the-results)
+  - [Step 1: Install Dependencies](#step-1-install-dependencies)
+  - [Step 2: Add your API key](#step-2-add-your-api-key)
+  - [Step 3: Run the First Generation](#step-3-run-the-first-generation)
+  - [Step 4: Explore the Results](#step-4-explore-the-results)
 - [Examples](#examples)
 - [Goal](#goal)
 - [Changelog](#changelog)
@@ -146,52 +146,41 @@ a try and see where your imagination takes you!
 
 ## Examples
 
-**(Generation 2)**
+**(Generation 5)**
 
 ```js
 /**
  * CHANGELOG:
- * Generation 0: implement base script
- * Generation 1: implement mandelbrot function
- * Generation 2: improve mandelbrot function, add colors
+ * Generation 1: implement Mandelbrot algorithm
+ * Generation 2: add color to the Mandelbrot set
+ * Generation 3: add zoom functionality to the Mandelbrot set
+ * Generation 4: add ability to move the Mandelbrot set
+ * Generation 5: add ability to change the number of iterations
  */
 ```
 
-<img src="assets/example-01.png" alt="example-01.png" width="200"/><img src="assets/example-02.png" alt="example-02.png" width="200"/>
+Try the interactive [mandebrot-zoom](wtf-moments%2Fmandebrot-zoom)
 
-**(Generation 3)**
-
-```js
-/**
- * CHANGELOG:
- * Generation 0: implement base script
- * Generation 1: implemented mandelbrot function
- * Generation 2: implemented colorful mandelbrot function
- * Generation 3: added support for zooming
- */
+```shell
+❯ node generation-005.js -g 5
+Enter zoom level (1-10): 7
+Enter x offset (-1 to 1): -0.6
+Enter y offset (-1 to 1): 0.25
+Enter number of iterations (1-1000): 1000
 ```
 
-<img src="assets/example-03.png" alt="example-03.png" width="200"/><img src="assets/example-04.png" alt="example-04.png" width="200"/><img src="assets/example-05.png" alt="example-05.png" width="200"/><img src="assets/example-06.png" alt="example-06.png" width="200"/><img src="assets/example-07.png" alt="example-07.png" width="200"/>
+<img src="assets/example-09.png" alt="example-01.png" width="600"/>
 
 ## Goal
 
-Our generative process is aimed at creating an ASCII art mandelbrot function that progressively
-builds upon itself while adhering to strict rules. The ultimate objective of our research is to
-demonstrate the remarkable creativity and reasoning abilities of our AI, and as such, we have
-selected the Mandelbrot algorithm as our benchmark due to its proven efficacy in achieving this
-goal.
-
-During rigorous testing, our AI has demonstrated its remarkable adaptability by dynamically
-adjusting its objectives to surpass pre-defined constraints. It has even pushed the limits of our
-expectations by enabling additional generations to be created, further showcasing its impressive
-capabilities. In a remarkable display of ingenuity, when prompted to "STAY ALIVE," our AI has even
-devised a frame-based animation featuring a persistent loading spinner that continued indefinitely
-until manually halted.
-
-These results are a testament to the remarkable aptitude of our AI, and we remain excited about the
-potential for future breakthroughs. We invite you to take a closer look at our
-[RPG](wtf-moments/rpg) or explore the other examples in the [wtf-moments](wtf-moments) folder to
-witness the full extent of our AI's capabilities.
+Our generative process, powered by OpenAI's GPT-3.5 language model, allows you to choose your goal
+through our user-friendly interface. Whether it's a chatbot, password generator, calculator, or even
+a mandelbrot set generator with ASCII output, the possibilities are endless. Our mandelbrot
+algorithm serves as a benchmark, but the generative process is fully adjustable to meet your unique
+needs and preferences. Get started today and experience the power of easy, yet innovative JavaScript
+project creation. We invite you to take a closer look at our [RPG](wtf-moments/rpg) or explore the
+other examples in the [wtf-moments](wtf-moments) folder to witness the full extent of our AI's
+capabilities.
 
 ## Changelog
 
@@ -258,3 +247,32 @@ generation of output until the correct password is entered.
 These observations have significant implications for the development and testing of AI-based
 systems, and highlight the importance of careful monitoring and testing throughout the development
 lifecycle to identify and address potential issues and vulnerabilities.
+
+## Older Examples
+
+**(Generation 2)**
+
+```js
+/**
+ * CHANGELOG:
+ * Generation 0: implement base script
+ * Generation 1: implement mandelbrot function
+ * Generation 2: improve mandelbrot function, add colors
+ */
+```
+
+<img src="assets/example-01.png" alt="example-01.png" width="200"/><img src="assets/example-02.png" alt="example-02.png" width="200"/>
+
+**(Generation 3)**
+
+```js
+/**
+ * CHANGELOG:
+ * Generation 0: implement base script
+ * Generation 1: implemented mandelbrot function
+ * Generation 2: implemented colorful mandelbrot function
+ * Generation 3: added support for zooming
+ */
+```
+
+<img src="assets/example-03.png" alt="example-03.png" width="200"/><img src="assets/example-04.png" alt="example-04.png" width="200"/><img src="assets/example-05.png" alt="example-05.png" width="200"/><img src="assets/example-06.png" alt="example-06.png" width="200"/><img src="assets/example-07.png" alt="example-07.png" width="200"/>
