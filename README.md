@@ -11,6 +11,33 @@ Check out our generative process powered by OpenAI's GPT-3.5 language model for 
 innovative JavaScript projects. Build anything from interactive tools to text-based games without
 needing a ton of coding experience. Get started today and unleash your creativity!
 
+## Software as we know it is about to change
+
+Have you ever wanted to create a cool text-based RPG game or tool in the console, but didn't know
+where to start? Well, with the power of OpenAI's GPT-3.5 language model and a set of strict rules,
+now anyone can create incredible projects with ease.
+
+At its core, this generative process uses the OpenAI API to create a series of JavaScript files,
+each building upon the previous one. By following the rules outlined in the comments of the code,
+the process ensures that the code produced is valid and meets the desired criteria.
+
+One example of a project that can be created through this generative process is a mandelbrot
+function that draws ASCII and logs the output in each generation. But that's just scratching the
+surface. The possibilities are endless, and the only limit is your imagination.
+
+The persona used in the code can have a big impact on how the project is built. For example, a
+creative programmer with a design-driven and animation enthusiast mindset can lead to the creation
+of incredible text-based games and tools that are both visually stunning and highly functional.
+
+But the best part is that anyone can do it. You don't need to be an innovative genius or a coding
+expert to use this process. By following the rules and letting the power of AI do the heavy lifting,
+even those with limited coding experience can create amazing projects.
+
+So, whether you're an experienced coder or just starting out, this generative process is a
+groundbreaking and exciting way to explore the possibilities of machine learning in the world of
+software development. Try it out for yourself and see where your imagination takes you. The future
+of software development is at your fingertips.
+
 ## Usage
 
 Create your own unique JavaScript programs with this easy-to-use generative process:
@@ -97,33 +124,6 @@ node generation-004.js
 
 The generative process offers endless possibilities for creating unique JavaScript programs. Give it
 a try and see where your imagination takes you!
-
-## Software as we know it is about to change
-
-Have you ever wanted to create a cool text-based RPG game or tool in the console, but didn't know
-where to start? Well, with the power of OpenAI's GPT-3.5 language model and a set of strict rules,
-now anyone can create incredible projects with ease.
-
-At its core, this generative process uses the OpenAI API to create a series of JavaScript files,
-each building upon the previous one. By following the rules outlined in the comments of the code,
-the process ensures that the code produced is valid and meets the desired criteria.
-
-One example of a project that can be created through this generative process is a mandelbrot
-function that draws ASCII and logs the output in each generation. But that's just scratching the
-surface. The possibilities are endless, and the only limit is your imagination.
-
-The persona used in the code can have a big impact on how the project is built. For example, a
-creative programmer with a design-driven and animation enthusiast mindset can lead to the creation
-of incredible text-based games and tools that are both visually stunning and highly functional.
-
-But the best part is that anyone can do it. You don't need to be an innovative genius or a coding
-expert to use this process. By following the rules and letting the power of AI do the heavy lifting,
-even those with limited coding experience can create amazing projects.
-
-So, whether you're an experienced coder or just starting out, this generative process is a
-groundbreaking and exciting way to explore the possibilities of machine learning in the world of
-software development. Try it out for yourself and see where your imagination takes you. The future
-of software development is at your fingertips.
 
 ## Examples
 
