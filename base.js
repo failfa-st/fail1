@@ -18,7 +18,7 @@ const { flags } = meow("", {
 		generations: {
 			type: "number",
 			alias: "g",
-			default: 3,
+			default: 1,
 		},
 		persona: {
 			type: "string",
@@ -60,7 +60,6 @@ RULES:
 - DO NOT use 3d party libraries
 - Use Node.js and module syntax (with imports)
 - NEVER use "require"
-- VERY IMPORTANT: DO NOT import any new modules or packages
 - NEVER explain anything
 - VERY IMPORTANT: output the javaScript only (this is the most important rule, the entire answer has to be valid javascript)
 `;
@@ -90,7 +89,7 @@ export async function evolve(generation, history = [], error) {
 An error occurred: ${error}
 in this code:
 ${code}
-Please fx it.
+Please fix it.
 RULES:
 - VERY IMPORTANT: output the javaScript only (this is the most important rule, the entire answer has to be valid javascript)
 `
