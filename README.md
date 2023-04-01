@@ -9,37 +9,37 @@
 
 - [Introduction](#introduction)
 - [Getting Started Guide](#getting-started-guide)
-  * [1. Prerequisites](#1-prerequisites)
-  * [2. Clone the repository](#2-clone-the-repository)
-  * [3. Install dependencies](#3-install-dependencies)
-  * [4. Add your API key](#4-add-your-api-key)
-  * [5. Run the First Generation](#5-run-the-first-generation)
-  * [6. Explore the Results](#6-explore-the-results)
-  * [7. Customize the Generative Process (Optional)](#7-customize-the-generative-process-optional)
-  * [8. Learn and Iterate](#8-learn-and-iterate)
+  - [1. Prerequisites](#1-prerequisites)
+  - [2. Clone the repository](#2-clone-the-repository)
+  - [3. Install dependencies](#3-install-dependencies)
+  - [4. Add your API key](#4-add-your-api-key)
+  - [5. Run the First Generation](#5-run-the-first-generation)
+  - [6. Explore the Results](#6-explore-the-results)
+  - [7. Customize the Generative Process (Optional)](#7-customize-the-generative-process-optional)
+  - [8. Learn and Iterate](#8-learn-and-iterate)
 - [Options](#options)
-  * [Learn JavaScript](#learn-javascript)
+  - [Learn JavaScript](#learn-javascript)
 - [Driving Your Project Forward with Progressive Generations](#driving-your-project-forward-with-progressive-generations)
-  * [Step 1: Initial generation](#step-1-initial-generation)
-  * [Step 2: Adding a new feature](#step-2-adding-a-new-feature)
-  * [Step 3: Refactoring code](#step-3-refactoring-code)
-  * [Step 4: Fixing bugs](#step-4-fixing-bugs)
+  - [Step 1: Initial generation](#step-1-initial-generation)
+  - [Step 2: Adding a new feature](#step-2-adding-a-new-feature)
+  - [Step 3: Refactoring code](#step-3-refactoring-code)
+  - [Step 4: Fixing bugs](#step-4-fixing-bugs)
 - [Understanding the Concept: A Comprehensive Guide](#understanding-the-concept-a-comprehensive-guide)
-  * [Goal](#goal)
-  * [Changelog](#changelog)
-  * [Evolution](#evolution)
-  * [Conclusion](#conclusion)
-  * [Acknowledgements](#acknowledgements)
-  * [Caution](#caution)
+  - [Goal](#goal)
+  - [Changelog](#changelog)
+  - [Evolution](#evolution)
+  - [Conclusion](#conclusion)
+  - [Acknowledgements](#acknowledgements)
+  - [Caution](#caution)
 - [Examples](#examples)
-  * [Calculator](#calculator)
-  * [Chatbot](#chatbot)
-  * [Mandelbrot](#mandelbrot)
-  * [Password Protecting Itself](#password-protecting-itself)
-  * [React App Form](#react-app-form)
-  * [RPG](#rpg)
-  * [Search Engine](#search-engine)
-  * [Links](#links)
+  - [Calculator](#calculator)
+  - [Chatbot](#chatbot)
+  - [Mandelbrot](#mandelbrot)
+  - [Password Protecting Itself](#password-protecting-itself)
+  - [React App Form](#react-app-form)
+  - [RPG](#rpg)
+  - [Search Engine](#search-engine)
+  - [Links](#links)
 
 <!-- tocstop -->
 
@@ -50,11 +50,12 @@ language model, marks the dawn of a new era. We are just scratching the surface 
 with machine learning models and their integration into software development. The possibilities are
 endless and the potential for innovation is unparalleled.
 
-From console-based drawing apps to chatbots and search engines, our generative process is designed
-to assist you in creating innovative software projects with ease. We invite skeptics and
-non-believers alike to explore the potential of AI and machine learning in the realm of software
-development. Join us as we enter a new era of software development, where the possibilities are
-limitless and the future is bright.
+From console-based drawing apps to [chatbots](examples/chatbot-gpt) and
+[search engines](examples/search-engine), our generative process is designed to assist you in
+creating innovative software projects with ease. We invite skeptics and non-believers alike to
+explore the potential of AI and machine learning in the realm of software development. Join us as we
+enter a new era of software development, where the possibilities are limitless and the future is
+bright.
 
 ## Getting Started Guide
 
