@@ -9,38 +9,40 @@
 
 - [Introduction](#introduction)
 - [Getting Started Guide](#getting-started-guide)
-  - [1. Prerequisites](#1-prerequisites)
-  - [2. Clone the repository](#2-clone-the-repository)
-  - [3. Install dependencies](#3-install-dependencies)
-  - [4. Add your API key](#4-add-your-api-key)
-  - [5. Run the First Generation](#5-run-the-first-generation)
-  - [6. Explore the Results](#6-explore-the-results)
-  - [7. Customize the Generative Process (Optional)](#7-customize-the-generative-process-optional)
-  - [8. Learn and Iterate](#8-learn-and-iterate)
+  * [1. Prerequisites](#1-prerequisites)
+  * [2. Clone the repository](#2-clone-the-repository)
+  * [3. Install dependencies](#3-install-dependencies)
+  * [4. Add your API key](#4-add-your-api-key)
+  * [5. Run the First Generation](#5-run-the-first-generation)
+  * [6. Explore the Results](#6-explore-the-results)
+  * [7. Customize the Generative Process (Optional)](#7-customize-the-generative-process-optional)
+  * [8. Learn and Iterate](#8-learn-and-iterate)
 - [Options](#options)
-  - [Options Example](#options-example)
-  - [Learn JavaScript](#learn-javascript)
+  * [Options Example](#options-example)
+  * [Learn JavaScript](#learn-javascript)
 - [Driving Your Project Forward with Progressive Generations](#driving-your-project-forward-with-progressive-generations)
-  - [Step 1: Initial generation](#step-1-initial-generation)
-  - [Step 2: Adding a new feature](#step-2-adding-a-new-feature)
-  - [Step 3: Refactoring code](#step-3-refactoring-code)
-  - [Step 4: Fixing bugs](#step-4-fixing-bugs)
+  * [Step 1: Initial generation](#step-1-initial-generation)
+  * [Step 2: Adding a new feature](#step-2-adding-a-new-feature)
+  * [Step 3: Refactoring code](#step-3-refactoring-code)
+  * [Step 4: Fixing bugs](#step-4-fixing-bugs)
 - [Understanding the Concept: A Comprehensive Guide](#understanding-the-concept-a-comprehensive-guide)
-  - [Goal](#goal)
-  - [Changelog](#changelog)
-  - [Evolution](#evolution)
-  - [Conclusion](#conclusion)
-  - [Acknowledgements](#acknowledgements)
-  - [Caution](#caution)
+  * [Goal](#goal)
+  * [Changelog](#changelog)
+  * [Evolution](#evolution)
+  * [Conclusion](#conclusion)
+  * [Acknowledgements](#acknowledgements)
+  * [Caution](#caution)
 - [Examples](#examples)
-  - [Calculator](#calculator)
-  - [Chatbot](#chatbot)
-  - [Mandelbrot](#mandelbrot)
-  - [Password Protecting Itself](#password-protecting-itself)
-  - [React App Form](#react-app-form)
-  - [RPG](#rpg)
-  - [Search Engine](#search-engine)
-  - [Links](#links)
+  * [Calculator](#calculator)
+  * [Chatbot](#chatbot)
+  * [Mandelbrot](#mandelbrot)
+  * [Password Protecting Itself](#password-protecting-itself)
+  * [React App Form](#react-app-form)
+  * [RPG](#rpg)
+  * [Search Engine](#search-engine)
+  * [HTML Canvas](#html-canvas)
+  * [ToDo App](#todo-app)
+  * [Links](#links)
 
 <!-- tocstop -->
 
@@ -134,8 +136,8 @@ node generation-004.js
 
 ### 7. Customize the Generative Process (Optional)
 
-You can customize the generative process using various command-line options such as goal,
-generations, persona, and temperature. For example:
+You can customize the generative process using various command-line options such as `goal`,
+`generations`, `persona`, and `temperature`. For example:
 
 ```shell
 node generation-000.js -G "console RPG game" -g 5 -p "creative Node.js developer, RPG enthusiast" -t 0.3
@@ -207,10 +209,10 @@ node generation-000.js -g 3 -G 'console-based drawing app' -p "junior developer"
 ### Step 2: Adding a new feature
 
 As the project evolves, you can create a new generation of the codebase and focus on adding new
-features. To do this, create the last generation-x.js file where x is the last available number in
-the sequence. Set the `generations` flag to specify how many generations the new file will be based
-on. Update the goal flag to define the new feature, and change the `persona` flag to match the
-expertise needed for this feature.
+features. To do this, use the last generation-x.js file where x is the last available number in the
+sequence. Set the `generations` flag to specify how many generations the new file will be based on.
+Update the goal flag to define the new feature, and change the `persona` flag to match the expertise
+needed for this feature.
 
 ```shell
 node generation-003.js -g 5 -G 'add user interaction' -p "expert ux engineer, node.js expert"
@@ -384,6 +386,19 @@ A console-based [search engine](examples/search-engine) that utilizes Bing to fe
 results. Users can enter a search query and the top results will be displayed in the console. Users
 can also choose to open the results in their default browser.
 
+### HTML Canvas
+
+The [html-canvas](examples/html-canvas) app is an example of using generative AI to create a dynamic
+flower animation on an HTML5 canvas. It involves multiple generations of code and evolves over time
+to add new features and improvements.
+
+### ToDo App
+
+his is a [to-do list app](examples/to-do-app) with various features such as adding and listing
+tasks, marking tasks as done, removing tasks, editing tasks, setting reminders and due dates for
+tasks, prioritizing tasks, and searching for tasks by keyword. Users can interact with the app
+through the command-line interface.
+
 ### Links
 
 Each of these examples showcases the endless possibilities of what can be created with this
@@ -398,3 +413,5 @@ generative process, powered by OpenAI's GPT-3.5 language model.
 - [react-app-form](examples/react-app-form)
 - [rpg](examples/rpg)
 - [search-engine](examples/search-engine)
+- [html-canvas](examples/html-canvas)
+- [to-do-app](examples/to-do-app)
