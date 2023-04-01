@@ -8,16 +8,25 @@
   "author": "",
   "license": "AGPL",
   "scripts": {
+    "prepare": "husky install",
     "start": "node generation-000.js",
     "toc": "npx markdown-toc README.md -i"
   },
   "devDependencies": {
-    "prettier": "^2.8.7"
+    "prettier": "^2.8.7",
+    "lint-staged": "^13.2.0",
+    "husky": "^8.0.3"
   },
   "dependencies": {
     "dotenv": "16.0.3",
-    "meow": "^11.0.0",
+    "meow": "11.0.0",
     "openai": "3.2.1",
-    "ora": "^6.3.0"
+    "ora": "6.3.0"
+  },
+  "lint-staged": {
+    "*.{mjs,js,ts,tsx}": ["prettier --write"],
+    "./*.json": ["prettier --write"],
+    "*.md": ["prettier --write"],
+    "README.md": ["npx markdown-toc -i"]
   }
 }

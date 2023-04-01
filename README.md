@@ -9,6 +9,14 @@
 
 - [Introduction](#introduction)
 - [Getting Started Guide](#getting-started-guide)
+  - [1. Prerequisites](#1-prerequisites)
+  - [2. Clone the repository](#2-clone-the-repository)
+  - [3. Install dependencies](#3-install-dependencies)
+  - [4. Add your API key](#4-add-your-api-key)
+  - [5. Run the First Generation](#5-run-the-first-generation)
+  - [6. Explore the Results](#6-explore-the-results)
+  - [7. Customize the Generative Process (Optional)](#7-customize-the-generative-process-optional)
+  - [8. Learn and Iterate](#8-learn-and-iterate)
 - [Options](#options)
   - [Learn JavaScript](#learn-javascript)
 - [Driving Your Project Forward with Progressive Generations](#driving-your-project-forward-with-progressive-generations)
@@ -35,14 +43,14 @@ This guide will walk you through the process of using our generative process pow
 GPT-3.5 language model to create innovative JavaScript projects. You'll learn how to install
 dependencies, add your API key, run the first generation, and explore the results.
 
-1. Prerequisites
+### 1. Prerequisites
 
 Ensure you have the following installed on your system:
 
 - Node.js (version 18.x or higher): https://nodejs.org/en/download/
 - npm (usually bundled with Node.js): https://www.npmjs.com/get-npm
 
-1. Clone the repository
+### 2. Clone the repository
 
 Clone the repository to your local machine:
 
@@ -56,7 +64,7 @@ Navigate to the project directory:
 cd fail1
 ```
 
-1. Install dependencies
+### 3. Install dependencies
 
 Install the required dependencies by running:
 
@@ -64,7 +72,7 @@ Install the required dependencies by running:
 npm install
 ```
 
-1. Add your API key
+### 4. Add your API key
 
 Create an account at https://platform.openai.com/signup and obtain your API key.
 
@@ -80,7 +88,7 @@ Open the `.env` file and add your OpenAI API key:
 OPENAI_API_KEY=your_api_key_here
 ```
 
-1. Run the First Generation
+### 5. Run the First Generation
 
 Start the generative process with a specific goal and persona:
 
@@ -94,7 +102,7 @@ For example, if you want to create a console-based chatbot:
 node generation-000.js --goal 'console-based chatbot' --persona "expert Node.js developer"
 ```
 
-1. Explore the Results
+### 6. Explore the Results
 
 After the generative process completes, you can examine the created JavaScript files or run the
 final generation. For example, if the process generated 4 generations:
@@ -103,7 +111,7 @@ final generation. For example, if the process generated 4 generations:
 node generation-004.js
 ```
 
-1. Customize the Generative Process (Optional)
+### 7. Customize the Generative Process (Optional)
 
 You can customize the generative process using various command-line options such as goal,
 generations, persona, and temperature. For example:
@@ -115,7 +123,7 @@ node generation-000.js -G "console RPG game" -g 5 -p "creative Node.js developer
 This command sets the goal to "console RPG game", the number of generations to 5, the persona to
 "creative Node.js developer, RPG enthusiast", and the temperature to 0.3.
 
-1. Learn and Iterate
+### 8. Learn and Iterate
 
 Study the generated code, learn from it, and use it as a starting point for your projects. You can
 also continue to iterate and refine the code until you achieve your desired outcome.
@@ -176,8 +184,7 @@ project direction. For instance, if we want to create a console-based drawing ap
 following command:
 
 ```shell
-node generation-000.js --generations 3 --goal 'console-based drawing app' --persona "junior
-developer"
+node generation-000.js -g 3 -G 'console-based drawing app' -p "junior developer"
 ```
 
 Once we have reached the third generation, we can move towards adding user interaction by creating
@@ -186,8 +193,7 @@ goal flag to 'add user interaction'. We will also change the persona flag to "ex
 node.js expert":
 
 ```shell
-node generation-003.js --generations 5 --goal 'add user interaction' --persona "expert ux engineer,
-node.js expert"
+node generation-003.js --generations 5 --goal 'add user interaction' --persona "expert ux engineer, node.js expert"
 ```
 
 The next step is to add color selection to our console-based drawing app. We will create
@@ -204,14 +210,15 @@ color red would print undefined,' and the persona flag will be changed to "profo
 Node.js, debugging expert."
 
 ```shell
-node generation-006.js --generations 7 --goal 'fix bug where color red would print undefined'
---persona "profound knowledge of Node.js, debugging expert"
+node generation-006.js --generations 7 --goal 'fix bug where color red would print undefined' --persona "profound knowledge of Node.js, debugging expert"
 ```
 
 By following these steps, we can drive our project towards a specific direction and achieve our
 desired outcome.
 
-## Goal
+## Understanding the Concept: A Comprehensive Guide
+
+### Goal
 
 Our generative process, powered by OpenAI's GPT-3.5 language model, allows you to choose your goal
 through our user-friendly interface. Whether it's a chatbot, password generator, calculator, or even
@@ -222,21 +229,20 @@ project creation. We invite you to take a closer look at our [RPG](examples/rpg)
 other examples in the [examples](examples) folder to witness the full extent of our program's
 capabilities.
 
-## Changelog
+### Changelog
 
 To keep track of changes made to the code during the generative process, a CHANGELOG is maintained.
 Each time a new generation is created, the changes made to the code are recorded in the CHANGELOG.
 
-## Evolution
+### Evolution
 
 The generative process creates a series of JavaScript files, each building upon the previous one.
 The process is driven by the OpenAI GPT-3.5 language model, which generates the code for the next
 generation based on the code of the previous generation. The evolve function defined in the base.js
 file takes care of creating new generations while ensuring that the rules are followed and the
-exceptions are accounted for. The process stops after five generations, or when the goal is
-achieved.
+exceptions are accounted for.
 
-## Conclusion
+### Conclusion
 
 The generative process implemented by the JavaScript files base.js and generation-000.js utilizes
 OpenAI's GPT-3.5 language model to create a series of JavaScript files, each building upon the
@@ -245,7 +251,7 @@ the code produced is valid and meets the desired criteria. The results of the ge
 demonstrate the potential of machine learning models in assisting with the creative process in
 software development, offering a glimpse into the future of software development.
 
-## Acknowledgements
+### Acknowledgements
 
 This project exemplifies the remarkable synergy between human innovation and machine intelligence in
 software development. AI played a significant role in generating the code and documentation, which
@@ -257,7 +263,7 @@ While AI-driven concepts or advancements may experience varying degrees of succe
 serves as a testament to the thrilling opportunities that emerge when human creativity converges
 with machine intelligence.
 
-## Caution
+### Caution
 
 This script has the potential to manipulate your computer or compromise your system. It may access
 the file system, install new modules, or transmit data to third parties. While such occurrences are
