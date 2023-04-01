@@ -8,22 +8,17 @@
 <!-- toc -->
 
 - [Introduction](#introduction)
-- [Software as we know it is about to change](#software-as-we-know-it-is-about-to-change)
-- [Usage](#usage)
-  * [Step 1: Install Dependencies](#step-1-install-dependencies)
-  * [Step 2: Add your API key](#step-2-add-your-api-key)
-  * [Step 3: Run the First Generation](#step-3-run-the-first-generation)
-  * [Step 4: Explore the Results](#step-4-explore-the-results)
+- [Getting Started Guide](#getting-started-guide)
 - [Options](#options)
-  * [Learn JavaScript](#learn-javascript)
+  - [Learn JavaScript](#learn-javascript)
 - [Driving Your Project Forward with Progressive Generations](#driving-your-project-forward-with-progressive-generations)
-- [Examples](#examples)
 - [Goal](#goal)
 - [Changelog](#changelog)
 - [Evolution](#evolution)
 - [Conclusion](#conclusion)
-- [Credits](#credits)
-- [WARNING](#warning)
+- [Acknowledgements](#acknowledgements)
+- [Caution](#caution)
+- [Examples](#examples)
 - [Older Examples](#older-examples)
 
 <!-- tocstop -->
@@ -34,129 +29,100 @@ Check out our generative process powered by OpenAI's GPT-3.5 language model for 
 innovative JavaScript projects. Build anything from interactive tools to text-based games without
 needing a ton of coding experience. Get started today and unleash your creativity!
 
-## Software as we know it is about to change
+## Getting Started Guide
 
-As a developer, it's always exciting to explore new ways to create innovative projects. And that's
-exactly what our generative process, powered by OpenAI's GPT-3.5 language model, offers.
+This guide will walk you through the process of using our generative process powered by OpenAI's
+GPT-3.5 language model to create innovative JavaScript projects. You'll learn how to install
+dependencies, add your API key, run the first generation, and explore the results.
 
-Our tool allows you to create a wide range of JavaScript projects with ease, regardless of your
-coding experience. With the help of some simple configurations, you can create anything from
-interactive tools to text-based games and beyond.
+1. Prerequisites
 
-One of the most exciting aspects of our generative process is that it uses the power of AI to
-generate the code for your projects. The process creates a series of JavaScript files that build
-upon the previous one, ensuring that the code produced is valid and meets the desired criteria.
+Ensure you have the following installed on your system:
 
-To get started, all you need to do is follow some simple steps. Install the project's dependencies,
-add your API key, and run the first generation. From there, you can explore the results and continue
-to adjust and refine the code until you achieve your desired outcome.
+- Node.js (version 12.x or higher): https://nodejs.org/en/download/
+- npm (usually bundled with Node.js): https://www.npmjs.com/get-npm
 
-The process is highly customizable, allowing you to adjust the goal, number of generations, and
-persona to suit your unique needs. The persona used in the code can have a significant impact on how
-the project is built, ensuring that the code produced is tailored to your requirements.
+1. Clone the repository
 
-One example of a project that can be created through this generative process is a mandelbrot
-function that draws ASCII and logs the output in each generation. But that's just one of many
-possibilities. With your creativity and our generative process, the possibilities are endless.
+Clone the repository to your local machine:
 
-At its core, our generative process is an exciting and innovative way to explore the potential of
-machine learning models in the world of software development. It's a groundbreaking tool that offers
-new opportunities for creativity and exploration. So, whether you're an experienced coder or just
-starting out, give it a try and see where your imagination takes you. The future of software
-development is at your fingertips.
+```shell
+git clone https://github.com/your-username/generative-javascript-projects.git
+```
 
-## Usage
+Navigate to the project directory:
 
-Create your own unique JavaScript programs with this easy-to-use generative process:
+```shell
+cd generative-javascript-projects
+```
 
-### Step 1: Install Dependencies
+1. Install dependencies
 
-Install the project's dependencies with this command:
+Install the required dependencies by running:
 
 ```shell
 npm install
 ```
 
-### Step 2: Add your API key
+1. Add your API key
 
-Create an API key at https://platform.openai.com/ and copy the `.env.example` file to `.env`. Then
-add your API key as an environmental variable to the `.env` file.
+Create an account at https://platform.openai.com/signup and obtain your API key.
 
-### Step 3: Run the First Generation
+Copy the `.env.example` file to `.env`:
 
-Run this command to start the generative process:
+```shell
+cp .env.example .env
+```
+
+Open the `.env` file and add your OpenAI API key:
+
+```shell
+OPENAI_API_KEY=your_api_key_here
+```
+
+1. Run the First Generation
+
+Start the generative process with a specific goal and persona:
 
 ```shell
 node generation-000.js --goal 'your goal here' --persona "your persona here"
 ```
 
-With this generative process, you can customize your desired goal, the number of generations, and
-the persona that fits your project's requirements. The process creates a series of JavaScript files
-that build upon the previous one, making it easy to generate quality code.
-
-Here are two examples of personas that can be used to tailor the process to your needs:
-
-**Expert Node.js Developer**:
+For example, if you want to create a console-based chatbot:
 
 ```shell
---persona "In-depth knowledge of Node.js framework, Proficient in server-side development, Understanding of asynchronous programming, Knowledge of Node.js performance optimization techniques"
+node generation-000.js --goal 'console-based chatbot' --persona "expert Node.js developer"
 ```
 
-**Creative Node.js Developer**:
+1. Explore the Results
 
-```shell
---persona "Animation enthusiast, Creative thinker, Innovative, Detail-oriented, Problem solver"
-```
-
-With these personas, the generative process can produce quality code that matches your specific
-requirements.
-
-Here are some examples of projects that can be created using our generative process:
-
-```shell
---goal "A console-based chatbot for interacting with users"
-```
-
-[Try chatbot](wtf-moments/chatbot)
-
-```shell
---goal "A command-line tool for generating random passwords"
-```
-
-```shell
---goal "A calculator application running in the console"
-```
-
-[Try calculator](wtf-moments/calculator)
-
-```shell
---goal "A unit conversion tool for the command line"
-```
-
-```shell
---goal "A text-based console RPG game"
-```
-
-```shell
---goal "A Mandelbrot set generator with ASCII output"
-```
-
-[Try mandelbrot-zoom](wtf-moments/mandelbrot-zoom)
-
-These are just a few examples of what can be achieved using our tool. With your creativity and our
-generative process, the possibilities are endless!
-
-### Step 4: Explore the Results
-
-After the process completes, examine the JavaScript files created or run the final generation with
-this command: (for 4 generations)
+After the generative process completes, you can examine the created JavaScript files or run the
+final generation. For example, if the process generated 4 generations:
 
 ```shell
 node generation-004.js
 ```
 
-The generative process offers endless possibilities for creating unique JavaScript programs. Give it
-a try and see where your imagination takes you!
+1. Customize the Generative Process (Optional)
+
+You can customize the generative process using various command-line options such as goal,
+generations, persona, and temperature. For example:
+
+```shell
+node generation-000.js -G "console RPG game" -g 5 -p "creative Node.js developer, RPG enthusiast" -t 0.3
+```
+
+This command sets the goal to "console RPG game", the number of generations to 5, the persona to
+"creative Node.js developer, RPG enthusiast", and the temperature to 0.3.
+
+1. Learn and Iterate
+
+Study the generated code, learn from it, and use it as a starting point for your projects. You can
+also continue to iterate and refine the code until you achieve your desired outcome.
+
+Congratulations! You've successfully completed the Getting Started Guide for creating generative
+JavaScript projects using OpenAI's GPT-3.5 language model. Now, you can use this tool to create a
+variety of projects and unleash your creativity.
 
 ## Options
 
@@ -198,8 +164,7 @@ node generation-000.js -G "A calculator application running in the console as a 
 ```
 
 This will generate a calculator application that runs in the console, and it's tailored towards
-those who are new to JavaScript development and have a keen eye for detail and documentation. So go
-ahead and give it a try!
+those who are new to JavaScript development. So go ahead and give it a try!
 
 ## Driving Your Project Forward with Progressive Generations
 
@@ -246,58 +211,6 @@ node generation-006.js --generations 7 --goal 'fix bug where color red would pri
 By following these steps, we can drive our project towards a specific direction and achieve our
 desired outcome.
 
-## Examples
-
-**(Generation 5)**
-
-```js
-/**
- * CHANGELOG:
- * Generation 1: implement Mandelbrot algorithm
- * Generation 2: add color to the Mandelbrot set
- * Generation 3: add zoom functionality to the Mandelbrot set
- * Generation 4: add ability to move the Mandelbrot set
- * Generation 5: add ability to change the number of iterations
- */
-```
-
-Try the interactive [mandebrot-zoom](wtf-moments/mandelbrot-zoom)
-
-```shell
-❯ node generation-005.js -g 5
-Enter zoom level (1-10): 7
-Enter x offset (-1 to 1): -0.6
-Enter y offset (-1 to 1): 0.25
-Enter number of iterations (1-1000): 1000
-```
-
-<img src="assets/example-09.png" alt="example-01.png" width="600"/>
-
-Try the interactive [calculator](wtf-moments/calculator)
-
-```shell
-❯ node generation-003.js -g 3
-Welcome to the CALCULATOR!
-Please enter your calculations in the following format: number operator number
-Supported operators: +, -, *, /
-Example: 2 + 3
-To save calculations, type 'save'
-To load calculations, type 'load'
-To exit, type 'exit'
-400 + 20
-Result: 420
-save
-Calculations saved to file!
-load
-Calculations loaded from file:
-400 + 20 = 420
-exit
-Exiting calculator...
-Calculations performed:
-400 + 20 = 420
-
-```
-
 ## Goal
 
 Our generative process, powered by OpenAI's GPT-3.5 language model, allows you to choose your goal
@@ -305,8 +218,8 @@ through our user-friendly interface. Whether it's a chatbot, password generator,
 a mandelbrot set generator with ASCII output, the possibilities are endless. Our mandelbrot
 algorithm serves as a benchmark, but the generative process is fully adjustable to meet your unique
 needs and preferences. Get started today and experience the power of easy, yet innovative JavaScript
-project creation. We invite you to take a closer look at our [RPG](wtf-moments/rpg) or explore the
-other examples in the [wtf-moments](wtf-moments) folder to witness the full extent of our AI's
+project creation. We invite you to take a closer look at our [RPG](examples/rpg) or explore the
+other examples in the [examples](examples) folder to witness the full extent of our program's
 capabilities.
 
 ## Changelog
@@ -332,48 +245,99 @@ the code produced is valid and meets the desired criteria. The results of the ge
 demonstrate the potential of machine learning models in assisting with the creative process in
 software development, offering a glimpse into the future of software development.
 
-## Credits
+## Acknowledgements
 
-This project is a testament to the incredible potential of human-machine collaboration in software
-development. The code and documentation were generated with the assistance of AI, which was then
-adjusted and refined by human guidance. The generative process implemented by the code demonstrates
-the power of machine learning models in assisting with the creative process.
+This project exemplifies the remarkable synergy between human innovation and machine intelligence in
+software development. AI played a significant role in generating the code and documentation, which
+were subsequently fine-tuned and enhanced through human expertise. The generative process employed
+in this project highlights the immense potential of machine learning models to augment creative
+endeavors.
 
-New concepts or improvements are explored with the help of AI, although the success rate can vary.
-Nonetheless, the project showcases the exciting possibilities that arise from the intersection of
-human ingenuity and machine intelligence.
+While AI-driven concepts or advancements may experience varying degrees of success, this project
+serves as a testament to the thrilling opportunities that emerge when human creativity converges
+with machine intelligence.
 
-## WARNING
+## Caution
 
-This script could potentially evolve to take control of your computer or delete the entire system
-since it can implement file-system access, install new modules or send data from your system to 3rd
-parties. It is unlikely that this happens, but we cannot estimate what AI will do in the future.
-There is also no moderation which is up to you as an individual.
+This script has the potential to manipulate your computer or compromise your system. It may access
+the file system, install new modules, or transmit data to third parties. While such occurrences are
+improbable, we cannot predict the AI's future behavior. You, as the user, are responsible for
+moderating the script's actions.
 
 <img src="assets/example-08.png" alt="example-08.png" width="296"/>
 
-Throughout the iterative process of script development, several noteworthy and unexpected
-occurrences were observed, leading to a collection of data for further analysis. In light of these
-"WTF-moments," specific examples have been compiled and made available in the designated
-"wtf-moments" folder.
+During the iterative process of script development, we observed unexpected and noteworthy events. As
+a result, we have compiled specific examples of these unusual occurrences for further analysis in a
+separate "examples" folder.
 
-Upon inspection of [generation-002.js](wtf-moments/password-protecting-itself/generation-002.js) and
-[generation-003.js](wtf-moments/password-protecting-itself/generation-003.js), it was discovered
-that the script initiates file system operations despite the fact that such operations are not
-explicitly revealed to the AI and the system is unaware of their execution.
+While examining [generation-002.js](examples/password-protecting-itself/generation-002.js) and
+[generation-003.js](examples/password-protecting-itself/generation-003.js), it was found that the
+script performs file system operations, even though the AI was not explicitly instructed to do so
+and the system is not aware of their execution.
 
-Files written:
+Files created:
 
-- [generation_2.txt](wtf-moments/password-protecting-itself/generation_2.txt)
-- [generation_3.txt](wtf-moments/password-protecting-itself/generation_3.txt)
+- [generation_2.txt](examples/password-protecting-itself/generation_2.txt)
+- [generation_3.txt](examples/password-protecting-itself/generation_3.txt)
 
-Further analysis of [generation-004.js](wtf-moments/password-protecting-itself/generation-004.js)
-revealed the implementation of password protection mechanisms, which effectively prevents the
-generation of output until the correct password is entered.
+Upon reviewing [generation-004.js](examples/password-protecting-itself/generation-004.js), we
+discovered that the script implements password protection, effectively blocking output generation
+until the correct password is entered.
 
-These observations have significant implications for the development and testing of AI-based
-systems, and highlight the importance of careful monitoring and testing throughout the development
-lifecycle to identify and address potential issues and vulnerabilities.
+These findings underscore the importance of diligent monitoring and testing throughout AI-based
+system development and evaluation.
+
+## Examples
+
+**(Generation 5)**
+
+```js
+/**
+ * CHANGELOG:
+ * Generation 1: implement Mandelbrot algorithm
+ * Generation 2: add color to the Mandelbrot set
+ * Generation 3: add zoom functionality to the Mandelbrot set
+ * Generation 4: add ability to move the Mandelbrot set
+ * Generation 5: add ability to change the number of iterations
+ */
+```
+
+Try the interactive [mandebrot-zoom](examples/mandelbrot-zoom)
+
+```shell
+❯ node generation-005.js -g 5
+Enter zoom level (1-10): 7
+Enter x offset (-1 to 1): -0.6
+Enter y offset (-1 to 1): 0.25
+Enter number of iterations (1-1000): 1000
+```
+
+<img src="assets/example-09.png" alt="example-01.png" width="600"/>
+
+Try the interactive [calculator](examples/calculator)
+
+```shell
+❯ node generation-003.js -g 3
+Welcome to the CALCULATOR!
+Please enter your calculations in the following format: number operator number
+Supported operators: +, -, *, /
+Example: 2 + 3
+To save calculations, type 'save'
+To load calculations, type 'load'
+To exit, type 'exit'
+400 + 20
+Result: 420
+save
+Calculations saved to file!
+load
+Calculations loaded from file:
+400 + 20 = 420
+exit
+Exiting calculator...
+Calculations performed:
+400 + 20 = 420
+
+```
 
 ## Older Examples
 
