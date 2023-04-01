@@ -21,7 +21,10 @@
     "dotenv": "16.0.3",
     "meow": "11.0.0",
     "openai": "3.2.1",
-    "ora": "6.3.0"
+    "ora": "6.3.0",
+    "jsdom": "21.1.1",
+    "cheerio": "1.0.0-rc.12",
+    "open": "9.1.0"
   },
   "lint-staged": {
     "*.{mjs,js,ts,tsx}": ["prettier --write"],

@@ -5,8 +5,6 @@ import { config } from "dotenv";
 import meow from "meow";
 import { Configuration, OpenAIApi } from "openai";
 import ora from "ora";
-import pkg from "./package.json" assert { type: "json" };
-
 config();
 
 const { flags } = meow("", {
@@ -52,10 +50,6 @@ There are EXCEPTIONS which have a higher weight than RULES
 There is a GOAL, it must be completed
 
 GOAL: ${flags.goal}
-
-AVAILABLE NPM PACKAGES: ${Object.entries(pkg.dependencies)
-	.map(([name, version]) => `${name}@${version}`)
-	.join(", ")}
 
 RULES:
 - Pay special attention TO ALL UPPERCASE words
