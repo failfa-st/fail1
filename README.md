@@ -47,7 +47,7 @@ Ensure you have the following installed on your system:
 Clone the repository to your local machine:
 
 ```shell
-git clone https://github.com/your-username/generative-javascript-projects.git
+git clone git@github.com:failfa-st/fail1.git
 ```
 
 Navigate to the project directory:
