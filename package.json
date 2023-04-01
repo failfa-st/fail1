@@ -31,5 +31,8 @@
     "./*.json": ["prettier --write"],
     "*.md": ["prettier --write"],
     "README.md": ["npx markdown-toc -i"]
+  },
+  "engines": {
+    "node": ">= 18"
   }
 }
