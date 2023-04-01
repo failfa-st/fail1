@@ -39,7 +39,7 @@ dependencies, add your API key, run the first generation, and explore the result
 
 Ensure you have the following installed on your system:
 
-- Node.js (version 12.x or higher): https://nodejs.org/en/download/
+- Node.js (version 18.x or higher): https://nodejs.org/en/download/
 - npm (usually bundled with Node.js): https://www.npmjs.com/get-npm
 
 1. Clone the repository
