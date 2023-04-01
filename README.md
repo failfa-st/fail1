@@ -18,6 +18,7 @@
   - [7. Customize the Generative Process (Optional)](#7-customize-the-generative-process-optional)
   - [8. Learn and Iterate](#8-learn-and-iterate)
 - [Options](#options)
+  - [Options Example](#options-example)
   - [Learn JavaScript](#learn-javascript)
 - [Driving Your Project Forward with Progressive Generations](#driving-your-project-forward-with-progressive-generations)
   - [Step 1: Initial generation](#step-1-initial-generation)
@@ -157,30 +158,27 @@ variety of projects and unleash your creativity.
 The following are the command-line interface (CLI) options available when running the generative
 process:
 
-- `-G`, `--goal`: Sets the desired goal for the generative process. The default is a mandelbrot
-  algorithm that outputs ASCII to the console in a 90 columns \* 30 rows grid.
-- `-g`, `--generations`: Sets the number of generations that will be created by the generative
-  process. The default is 1.
-- `-p`, `--persona`: Sets the persona or profile for the generative process. This can include
-  factors such as expertise level, creativity, and interests. The default is an expert Node.js
-  developer with a creative mindset.
-- `-t`, `--temperature`: Sets the temperature parameter for the OpenAI API. This controls the
-  "creativity" of the generative process, with higher temperatures resulting in more unpredictable
-  output. The default is 0.2.
+| Flag            | Alias | Description                                                                                                                 |
+| --------------- | ----- | --------------------------------------------------------------------------------------------------------------------------- |
+| `--goal`        | `-G`  | Sets the desired goal for the generative process. The default is a mandelbrot algorithm that outputs ASCII to the console.  |
+| `--generations` | `-g`  | Sets the number of generations that will be created by the generative process. The default is 1.                            |
+| `--persona`     | `-p`  | Sets the persona or profile for the generative process. The default is an expert Node.js developer with a creative mindset. |
+| `--temperature` | `-t`  | Sets the temperature parameter for the OpenAI API. The default is 0.2.                                                      |
 
-These options allow you to customize the generative process to better suit your needs and
-preferences. For example, you can set a specific goal for the generative process, adjust the number
-of generations to generate, and even fine-tune the "creativity" level of the output. Use these
-options to explore the full potential of the generative process and unlock your creativity.
+To use these options, you can simply pass them to the CLI command when running the generative
+process.
 
-To use these options, you can pass them to the CLI command when running the generative process.
-Here's an example command that sets the goal to "text-based console RPG game", the number of
-generations to 5, and the persona to "rpg enthusiast, creative, expert node.js developer,
-detail-oriented":
+### Options Example
+
+Here's an example command to get you started:
 
 ```shell
 node generation-000.js -G "text-based console RPG game" -g 5 -p "rpg enthusiast, creative, expert node.js developer, detail-oriented"
 ```
+
+In this example, we've set the goal to "text-based console RPG game," the number of generations to
+5, and the persona to "rpg enthusiast, creative, expert node.js developer, detail-oriented." Feel
+free to adjust these options to suit your own preferences and start creating!
 
 ### Learn JavaScript
 
@@ -188,7 +186,7 @@ If you're eager to learn, this is the perfect opportunity for you! Simply run th
 in your shell:
 
 ```shell
-node generation-000.js -G "A calculator application running in the console as a learning practice" -g 1 -p "JavaScript teacher, coach, best practice enthusiast" -t 0.8
+node generation-000.js -G "A calculator application running in the console as a learning practice" -p "JavaScript teacher, coach, best practice enthusiast" -t 0.8
 ```
 
 This will generate a calculator application that runs in the console, and it's tailored towards
