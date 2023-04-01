@@ -53,7 +53,7 @@ git clone git@github.com:failfa-st/fail1.git
 Navigate to the project directory:
 
 ```shell
-cd generative-javascript-projects
+cd fail1
 ```
 
 1. Install dependencies
