@@ -77,7 +77,7 @@ export const generations = flags.generations;
 const maxTries = 3;
 let tries = 0;
 
-export async function evolve(generation, history = [], error) {
+export async function evolve(generation) {
 	if (tries > maxTries) {
 		spinner.fail("Maximum retries reached");
 		return;
@@ -89,19 +89,7 @@ export async function evolve(generation, history = [], error) {
 		const filename = buildFilename(generation);
 		const code = await fs.readFile(filename, "utf-8");
 		spinner.start(`Working (${generation})`);
-		history.push({
-			role: "user",
-			content: error
-				? `
-An error occurred: ${error}
-in this code:
-${code}
-Please fix it.
-RULES:
-- VERY IMPORTANT: output the javaScript only (this is the most important rule, the entire answer has to be valid javascript)
-`
-				: code,
-		});
+
 		const completion = await openai.createChatCompletion({
 			// model: "gpt-4",
 			model: "gpt-3.5-turbo",
@@ -110,7 +98,10 @@ RULES:
 					role: "system",
 					content: `You are a: ${persona} extend or fix my code based on these instructions: ${instructions}`,
 				},
-				...history,
+				{
+					role: "user",
+					content: code,
+				},
 			],
 			max_tokens: 2000,
 			temperature: flags.temperature,
@@ -130,7 +121,7 @@ RULES:
 			await evolve(generation - 1);
 		} else {
 			spinner.text = `Generation ${nextGeneration} failed`;
-			await evolve(generation, history, error);
+			await evolve(generation);
 		}
 	}
 }
