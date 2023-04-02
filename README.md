@@ -37,6 +37,7 @@
   - [Chatbot](#chatbot)
   - [Mandelbrot](#mandelbrot)
   - [Password Protecting Itself](#password-protecting-itself)
+  - [Quiz with Highscore](#quiz-highscore)
   - [React App Form](#react-app-form)
   - [RPG](#rpg)
   - [Search Engine](#search-engine)
@@ -365,6 +366,10 @@ An example that demonstrates how to create a
 [password-protected](examples/password-protecting-itself) script. When the script is run, it prompts
 the user for a password. If the correct password is entered, the script will execute. Otherwise, it
 will terminate.
+
+### Quiz with Highscore
+
+A [quiz-with-highscore](examples/quiz-with-highscore) that writes a highscore.txt file.
 
 ### React App Form
 
