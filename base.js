@@ -15,8 +15,7 @@ const { flags } = meow("", {
 		goal: {
 			type: "string",
 			alias: "G",
-			default:
-				"mandelbrot algorithm that outputs ascii to the console in a 90 columns * 30 rows grid",
+			default: "extend the code",
 		},
 		generations: {
 			type: "number",
@@ -26,7 +25,7 @@ const { flags } = meow("", {
 		persona: {
 			type: "string",
 			alias: "p",
-			default: "expert node.js developer, creative",
+			default: "expert node.js developer, creative, interaction expert, cli expert",
 		},
 		temperature: {
 			type: "number",
@@ -36,7 +35,7 @@ const { flags } = meow("", {
 	},
 });
 
-const spinner = ora("Working");
+const spinner = ora("Evolving");
 
 const configuration = new Configuration({
 	apiKey: process.env.OPENAI_SECRET,
@@ -46,10 +45,8 @@ export const openai = new OpenAIApi(configuration);
 
 const instructions = `
 Extend the code but the RULES can NEVER be changed and must be respected AT ALL TIMES.
-The code should INCREASE in logic and COMPLEXITY.
-It is utterly important that ALL RULES are respected fully. NEVER break RULES
-There are EXCEPTIONS which have a higher weight than RULES
-There is a GOAL, it must be completed
+The code should INCREASE in logic.
+The GOAL must be completed.
 
 GOAL: ${flags.goal}
 
@@ -62,10 +59,8 @@ RULES:
 - Pay attention to the GOAL and EXTEND it
 - KEEP the existing code, only ADD new code or improve the code you added since "Generation 0"
 - increment the generation constant ONCE per generation
-- Keep track of changes in the CHANGELOG
-- DO NOT use Browser APIs (Node.js only)
-- DO NOT use 3d party libraries
-- Use Node.js and module syntax (with imports)
+- Keep track of changes, EXTEND the CHANGELOG
+- Use es module syntax (with imports)
 - NEVER use "require"
 - NEVER explain anything
 - VERY IMPORTANT: output the javaScript only (this is the most important rule, the entire answer has to be valid javascript)
@@ -88,7 +83,7 @@ export async function evolve(generation) {
 	try {
 		const filename = buildFilename(generation);
 		const code = await fs.readFile(filename, "utf-8");
-		spinner.start(`Working (${generation})`);
+		spinner.start(`Evolving (${generation})`);
 
 		const completion = await openai.createChatCompletion({
 			// model: "gpt-4",
@@ -103,15 +98,14 @@ export async function evolve(generation) {
 					content: code,
 				},
 			],
-			max_tokens: 2000,
+			max_tokens: 2048,
 			temperature: flags.temperature,
 		});
 		spinner.stop();
 		const { content } = completion.data.choices[0].message;
 		const nextFilename = buildFilename(nextGeneration);
 		await fs.writeFile(nextFilename, content);
-		spinner.text = `Generation ${nextGeneration} created`;
-		spinner.text = `Spawning ${nextFilename}`;
+		spinner.succeed(`Generation ${generation} done`);
 		await import(`./${nextFilename}`);
 	} catch (error) {
 		const message = (error.response?.message ?? error.message ?? "unknown error").trim();
@@ -120,7 +114,6 @@ export async function evolve(generation) {
 		if (message.startsWith("ENOENT") && generation > 1) {
 			await evolve(generation - 1);
 		} else {
-			spinner.text = `Generation ${nextGeneration} failed`;
 			await evolve(generation);
 		}
 	}

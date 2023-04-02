@@ -3,12 +3,15 @@
  * Generation 0: implement base script
  */
 
+import terminalKit from "terminal-kit";
+
 import { generations, evolve } from "./base.js";
-import readline from "readline";
 const generation = 0;
 
-async function output() {
-	console.log("  0-0  ");
+const term = terminalKit.terminal;
+
+async function runApp() {
+	// Add app functionality
 }
 
 if (generation < generations) {
@@ -18,5 +21,5 @@ if (generation < generations) {
 		console.error(error);
 	}
 } else {
-	await output();
+	await runApp();
 }
