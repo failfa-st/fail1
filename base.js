@@ -50,13 +50,12 @@ The GOAL must be completed.
 
 GOAL: ${flags.goal}
 
-AVAILABLE NPM PACKAGES: ${Object.entries(pkg.dependencies)
+ALLOWED NPM PACKAGES: ${Object.entries(pkg.dependencies)
 	.map(([name, version]) => `${name}@${version}`)
 	.join(", ")}
 
 RULES:
 - Pay special attention TO ALL UPPERCASE words
-- Pay attention to the GOAL and EXTEND it
 - KEEP the existing code, only ADD new code or improve the code you added since "Generation 0"
 - increment the generation constant ONCE per generation
 - Keep track of changes, EXTEND the CHANGELOG
@@ -69,21 +68,20 @@ RULES:
 const persona = `programmer with the following characteristics: ${flags.persona}`;
 
 export const generations = flags.generations;
-const maxTries = 3;
-let tries = 0;
+const maxSpawns = 3;
+let spawns = maxSpawns;
 
 export async function evolve(generation) {
-	if (tries > maxTries) {
+	if (spawns <= 0) {
 		spinner.fail("Maximum retries reached");
 		return;
 	}
 	const nextGeneration = generation + 1;
-	tries++;
 
 	try {
 		const filename = buildFilename(generation);
 		const code = await fs.readFile(filename, "utf-8");
-		spinner.start(`Evolving (${generation})`);
+		spinner.start(`Generation ${generation} | ${spawns} spawns left`);
 
 		const completion = await openai.createChatCompletion({
 			// model: "gpt-4",
@@ -105,20 +103,26 @@ export async function evolve(generation) {
 		const { content } = completion.data.choices[0].message;
 		const nextFilename = buildFilename(nextGeneration);
 		await fs.writeFile(nextFilename, content);
-		spinner.succeed(`Generation ${generation} done`);
+		spinner.succeed(`Generation ${generation} | ${spawns} spawns left`);
 		await import(`./${nextFilename}`);
 	} catch (error) {
+		spawns--;
 		const message = (error.response?.message ?? error.message ?? "unknown error").trim();
-		spinner.fail(message);
+		spinner.fail(`Generation ${generation} | ${spawns} spawns left`);
+		console.error(error);
 		// The AI might increment too often
 		if (message.startsWith("ENOENT") && generation > 1) {
 			await evolve(generation - 1);
 		} else {
-			await evolve(generation);
+			throw error;
 		}
 	}
 }
 
+export function pad(n) {
+	return n.toString().padStart(3, "0");
+}
+
 export function buildFilename(currentGeneration) {
-	return path.join(".", `generation-${currentGeneration.toString().padStart(3, "0")}.js`);
+	return path.join(".", `generation-${pad(currentGeneration)}.js`);
 }
