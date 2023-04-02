@@ -12,21 +12,18 @@ config();
 const { flags } = meow("", {
 	importMeta: import.meta,
 	flags: {
-		goal: {
+		prompt: {
 			type: "string",
-			alias: "G",
-			default:
-				"mandelbrot algorithm that outputs ascii to the console in a 90 columns * 30 rows grid",
+			alias: "P",
+		},
+		negativePrompt: {
+			type: "string",
+			alias: "N",
 		},
 		generations: {
 			type: "number",
 			alias: "g",
 			default: 1,
-		},
-		persona: {
-			type: "string",
-			alias: "p",
-			default: "expert node.js developer, creative",
 		},
 		temperature: {
 			type: "number",
@@ -44,85 +41,113 @@ const configuration = new Configuration({
 
 export const openai = new OpenAIApi(configuration);
 
-const instructions = `
-Extend the code but the RULES can NEVER be changed and must be respected AT ALL TIMES.
-The code should INCREASE in logic and COMPLEXITY.
-It is utterly important that ALL RULES are respected fully. NEVER break RULES
-There are EXCEPTIONS which have a higher weight than RULES
-There is a GOAL, it must be completed
-
-GOAL: ${flags.goal}
-
-AVAILABLE NPM PACKAGES: ${Object.entries(pkg.dependencies)
-	.map(([name, version]) => `${name}@${version}`)
-	.join(", ")}
-
-RULES:
-- Pay special attention TO ALL UPPERCASE words
-- Pay attention to the GOAL and EXTEND it
-- KEEP the existing code, only ADD new code or improve the code you added since "Generation 0"
-- increment the generation constant ONCE per generation
-- Keep track of changes in the CHANGELOG
-- DO NOT use Browser APIs (Node.js only)
-- DO NOT use 3d party libraries
-- Use Node.js and module syntax (with imports)
-- NEVER use "require"
-- NEVER explain anything
-- VERY IMPORTANT: output the javaScript only (this is the most important rule, the entire answer has to be valid javascript)
-`;
-
-const persona = `programmer with the following characteristics: ${flags.persona}`;
-
 export const generations = flags.generations;
-const maxTries = 3;
-let tries = 0;
 
-export async function evolve(generation) {
-	if (tries > maxTries) {
-		spinner.fail("Maximum retries reached");
-		return;
+function parseInput(input) {
+	const regex = /\(([^)]+)\):([\d.]+)|(\w+):([\d.]+)|(\w+)/g;
+	const output = [];
+
+	let match;
+
+	while (true) {
+		match = regex.exec(input);
+		if (match === null) {
+			break;
+		}
+
+		if (match[1]) {
+			const tokens = match[1].split(" ");
+			const weight = parseFloat(match[2]);
+			tokens.forEach(token => {
+				output.push({ token, weight });
+			});
+		} else if (match[3]) {
+			const token = match[3];
+			const weight = parseFloat(match[4]);
+			output.push({ token, weight });
+		} else {
+			const token = match[5];
+			const weight = 1;
+			output.push({ token, weight });
+		}
 	}
+
+	return output;
+}
+
+const persona = `expert node.js developer, creative"`;
+export async function evolve(generation) {
 	const nextGeneration = generation + 1;
-	tries++;
 
 	try {
 		const filename = buildFilename(generation);
 		const code = await fs.readFile(filename, "utf-8");
 		spinner.start(`Working (${generation})`);
+		const messages = [
+			{
+				role: "system",
+				content: `
+You are a: "${persona}", that sends  ONLY valid JavaScript. You get javascript and answer javascript.
+- Pay special attention TO ALL UPPERCASE words.
+- Extend the code but the RULES can NEVER be changed and must be respected AT ALL TIMES.
+- There is a GOAL, it must be completed
+- ALWAYS answer with code
+- NEVER answer with empty output
+---
+
+PROMPT: "${flags.prompt}"
+---
+${
+	flags.negativePrompt
+		? `
+
+NEGATIVE PROMPT: "${flags.negativePrompt}"
+---`
+		: ""
+}
+
+AVAILABLE NPM PACKAGES: ${Object.entries(pkg.dependencies)
+					.map(([name, version]) => `${name}@${version}`)
+					.join(", ")}
+
+RULES:
+- Keep track of changes in the CHANGELOG
+- Use Node.js and module syntax (with imports)
+- NEVER use "require"
+- NEVER output an explanation or text
+- no surrounding text only JS so it can be parsed
+- explanation or text in CODE COMMENTS ONLY
+- VERY IMPORTANT: output the JavaScript only (this is the most important rule, the entire answer has to be valid JavaScript)
+`,
+			},
+			{
+				role: "user",
+				content: code,
+			},
+		];
 
 		const completion = await openai.createChatCompletion({
 			// model: "gpt-4",
 			model: "gpt-3.5-turbo",
-			messages: [
-				{
-					role: "system",
-					content: `You are a: ${persona} extend or fix my code based on these instructions: ${instructions}`,
-				},
-				{
-					role: "user",
-					content: code,
-				},
-			],
+			messages,
 			max_tokens: 2000,
 			temperature: flags.temperature,
 		});
+		console.log(">>>>", JSON.stringify(completion.data, null, 4));
 		spinner.stop();
 		const { content } = completion.data.choices[0].message;
+
+		if (content === "" || !content.trim().startsWith("/**")) {
+			await evolve(generation);
+			return;
+		}
 		const nextFilename = buildFilename(nextGeneration);
 		await fs.writeFile(nextFilename, content);
-		spinner.text = `Generation ${nextGeneration} created`;
-		spinner.text = `Spawning ${nextFilename}`;
 		await import(`./${nextFilename}`);
 	} catch (error) {
 		const message = (error.response?.message ?? error.message ?? "unknown error").trim();
+		console.error(message);
 		spinner.fail(message);
-		// The AI might increment too often
-		if (message.startsWith("ENOENT") && generation > 1) {
-			await evolve(generation - 1);
-		} else {
-			spinner.text = `Generation ${nextGeneration} failed`;
-			await evolve(generation);
-		}
 	}
 }
 
