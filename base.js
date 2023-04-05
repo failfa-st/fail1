@@ -148,7 +148,6 @@ export async function handleError(error, generation) {
 			console.error(
 				"Please make sure to use a valid API key and that you have set OPENAI_SECRET in .env"
 			);
-			return;
 		}
 
 		return;
