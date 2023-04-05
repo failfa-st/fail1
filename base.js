@@ -107,15 +107,9 @@ export async function evolve(generation) {
 		await import(`./${nextFilename}`);
 	} catch (error) {
 		spawns--;
-		const message = (error.response?.message ?? error.message ?? "unknown error").trim();
 		spinner.fail(`Generation ${generation} | ${spawns} spawns left`);
-		console.error(error);
-		// The AI might increment too often
-		if (message.startsWith("ENOENT") && generation > 1) {
-			await evolve(generation - 1);
-		} else {
-			throw error;
-		}
+
+		await handleError(error, generation);
 	}
 }
 
@@ -125,4 +119,40 @@ export function pad(n) {
 
 export function buildFilename(currentGeneration) {
 	return path.join(".", `generation-${pad(currentGeneration)}.js`);
+}
+
+export async function handleError(error, generation) {
+	const message = (
+		error.response?.data?.error.message ??
+		error.message ??
+		"unknown error"
+	).trim();
+
+	const code = error.response?.status ?? error.code ?? "UNKOWN_CODE";
+
+	if (code === "ERR_MODULE_NOT_FOUND") {
+		console.error(message);
+		return;
+	}
+
+	// The AI might increment too often
+	if (message.startsWith("ENOENT") && generation > 1) {
+		await evolve(generation - 1);
+	}
+
+	// Errors in the API
+	if (error.response && code !== 200) {
+		console.error(`${code}: ${message}`);
+
+		if (code === 401) {
+			console.error(
+				"Please make sure to use a valid API key and that you have set OPENAI_SECRET in .env"
+			);
+		}
+
+		return;
+	}
+
+	console.error(error);
+	throw error;
 }
