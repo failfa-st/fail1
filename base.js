@@ -128,7 +128,7 @@ export async function handleError(error, generation) {
 		"unknown error"
 	).trim();
 
-	const code = error.response?.status ?? error.code ?? -1;
+	const code = error.response?.status ?? error.code ?? "UNKOWN_CODE";
 
 	if (code === "ERR_MODULE_NOT_FOUND") {
 		console.error(message);
