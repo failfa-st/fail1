@@ -2,11 +2,12 @@
  * CHANGELOG:
  * Generation 0: implement base script
  */
-import terminalKit from "terminal-kit";
+import readline from "node:readline";
+import logUpdate from "log-update";
+import fs from "node:fs/promises";
 import { generations, evolve } from "./base.js";
 
 const generation = 0;
-const { terminal } = terminalKit;
 
 async function run() {
 	// App logic
