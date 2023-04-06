@@ -24,7 +24,7 @@ Options
   -m, --model          Set the model to use for generating the code. Default is "gpt-3.5-turbo".
 
 Examples
-  $ node generation-000.js.js -G "console based mandelbrot set ascii" -g 3 -p "Node.js developer, creative" -c
+  $ node generation-000.js -G "console based mandelbrot set ascii" -g 3 -p "Node.js developer, creative" -c
 
 `,
 	{
