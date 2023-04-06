@@ -102,8 +102,7 @@ to produce code that can be extended, refactored or fixed. Each generation of co
 previous one and aims to improve the code. The project uses different personas to generate code, and
 a specified number of generations of code can be generated. The generated code is formatted using
 prettier and saved in separate files. The project also keeps track of changes and provides a
-changelog. Additionally, it can remove previously generated code. The project can handle errors and
-can retry code generation in case of an error.
+changelog. Additionally, it can remove previously generated code. The project can handle errors.
 
 The project has two files:
 
