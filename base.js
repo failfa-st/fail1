@@ -67,7 +67,7 @@ Examples
 const spinner = ora("Evolving");
 
 const configuration = new Configuration({
-	apiKey: process.env.OPENAI_SECRET,
+	apiKey: process.env.OPENAI_API_KEY,
 });
 
 export const openai = new OpenAIApi(configuration);
