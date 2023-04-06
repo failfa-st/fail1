@@ -1,6 +1,6 @@
-# Fail 1
+<h1 align="center"><big>Fail1</big></h1>
 
-**Please respect the [LICENSE](LICENSE) of this project (AGPL-3.0)**
+<p align="center"><img src="assets/logo.png" alt="logo"/></p>
 
 > This project is built to fail  
 > (until it doesn't)
@@ -9,10 +9,10 @@
 
 - [Overview](#overview)
 - [Getting Started Guide](#getting-started-guide)
-  * [1. Prerequisites](#1-prerequisites)
-  * [2. Clone the repository](#2-clone-the-repository)
-  * [3. Install dependencies](#3-install-dependencies)
-  * [4. Add your API key](#4-add-your-api-key)
+  - [1. Prerequisites](#1-prerequisites)
+  - [2. Clone the repository](#2-clone-the-repository)
+  - [3. Install dependencies](#3-install-dependencies)
+  - [4. Add your API key](#4-add-your-api-key)
 - [Usage](#usage)
 - [Options](#options)
 - [Functionality](#functionality)
