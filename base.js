@@ -45,6 +45,10 @@ Examples
 				alias: "p",
 				default: "expert node.js developer, creative, code optimizer, interaction expert",
 			},
+			neg: {
+				type: "string",
+				alias: "n",
+			},
 			temperature: {
 				type: "number",
 				alias: "t",
@@ -73,51 +77,67 @@ const configuration = new Configuration({
 export const openai = new OpenAIApi(configuration);
 
 const instructions = `
-The code should ALWAYS be IMPROVED or EXTENDED or REFACTORED or FIXED
-be creative and add new features
+GOAL: ${flags.goal}${
+	flags.neg
+		? `, ${flags.neg
+				.split(",")
+				.map(neg => `no ${neg.trim()}`)
+				.join(", ")}`
+		: ""
+}
+
+RULES:
+The code should ALWAYS be EXTENDED or REFACTORED or FIXED
 The GOAL must be completed
-
-GOAL: ${flags.goal}
-
 increment the generation constant ONCE per generation
-Keep track of changes, EXTEND the CHANGELOG
+EXTEND the CHANGELOG
 NEVER use external apis with secret or key
-ONLY use es module syntax (with imports)
+EXCLUSIVELY use esm (imports)
 NEVER explain anything
-ALWAYS output ONLY JavaScript
+NEVER output markdown
+EXCLUSIVELY output JavaScript
+EVERYTHING happens in one file
+VERY IMPORTANT: the entire answer has to be valid JavaScript
 `;
 
 const history = [];
 
 export const generations = flags.generations;
-const maxSpawns = 3;
-let spawns = maxSpawns;
 let run = 0;
 
+/**
+ *
+ * @param {number} generation
+ * @returns {Promise<void>}
+ */
 export async function evolve(generation) {
 	if (flags.help) {
 		return;
 	}
-	if (spawns <= 0) {
-		spinner.fail("Maximum retries reached");
-		return;
-	}
+
 	const nextGeneration = generation + 1;
+	spinner.start(`Evolution ${generation} -> ${nextGeneration}`);
 
 	try {
 		const filename = buildFilename(generation);
 		const code = await fs.readFile(filename, "utf-8");
-		spinner.start(`Generation ${generation} | ${spawns} spawns left`);
+
+		// Reduce history length
+		history.shift();
+		history.shift();
 
 		if (flags.clean) {
 			// Remove all older generations
-			const files = (await globby(["generation-*.js", "!generation-000.js"])).filter(
-				file => file > buildFilename(generation)
-			);
+			const files = (
+				await globby(["generation-*.js", "generation-*.md", "!generation-000.js"])
+			).filter(file => file > buildFilename(generation));
 			await Promise.all(files.map(async file => await fs.unlink(file)));
 		}
 
 		if (run === 0) {
+			const promptFilename = buildPromptFilename(generation);
+			await fs.writeFile(promptFilename, buildPrompt(flags.goal, flags.neg));
+
 			history.push(
 				{
 					role: "user",
@@ -129,12 +149,14 @@ export async function evolve(generation) {
 				}
 			);
 		}
+
 		run++;
+
 		history.push({
 			role: "user",
 			content: "continue the code",
 		});
-		spinner.start(`Evolution ${generation} -> ${generation + 1}`);
+
 		const completion = await openai.createChatCompletion({
 			// model: "gpt-4",
 			model: flags.model,
@@ -148,47 +170,121 @@ export async function evolve(generation) {
 			max_tokens: 2048,
 			temperature: flags.temperature,
 		});
-		spinner.stop();
+
 		const { content } = completion.data.choices[0].message;
-		const cleanContent = content
+
+		// Clean GPT output (might return  code block)
+		const cleanContent = minify(content)
 			.replace("```javascript", "")
 			.replace("```js", "")
-			.replace("```", "");
+			.replace("```", "")
+			.trim();
+
+		// Code should start with a comment (changelog). If it doesn't it is often not JavaScrip but
+		// a human language response
 		if (cleanContent.startsWith("/*")) {
 			history.push({
 				role: "assistant",
 				content: cleanContent,
 			});
+
 			const nextFilename = buildFilename(nextGeneration);
 			await fs.writeFile(nextFilename, prettify(cleanContent));
-			spinner.succeed(`Evolution ${generation} -> ${generation + 1}`);
+
+			spinner.succeed(`Evolution ${generation} -> ${nextGeneration}`);
+
 			await import(`./${nextFilename}`);
 		} else {
-			throw new Error("NOT_JAVASCRIPT");
+			spinner.fail(`Evolution ${generation} -> ${nextGeneration}`);
+			await handleError(new Error("NOT_JAVASCRIPT"), generation);
 		}
 	} catch (error) {
-		spawns--;
-		spinner.fail(`Evolution ${generation} -> ${generation + 1}`);
+		spinner.fail(`Evolution ${generation} -> ${nextGeneration}`);
 		await handleError(error, generation);
 	}
 }
 
+/**
+ * Pads the given number or string with zeros to a length of 3 characters.
+ *
+ * @param {number} n - The input number or string to be padded.
+ * @returns {string} - The padded string.
+ */
 export function pad(n) {
 	return n.toString().padStart(3, "0");
 }
 
+/**
+ * Builds a filename string for the given generation number.
+ *
+ * @param {number} currentGeneration - The input generation number.
+ * @returns {string} - The generated filename string.
+ */
 export function buildFilename(currentGeneration) {
 	return path.join(".", `generation-${pad(currentGeneration)}.js`);
 }
 
-export function minify(code) {
-	return code.replace(/^\s+/gim, "");
+/**
+ * Builds a prompt filename string for the given generation number.
+ *
+ * @param {number} currentGeneration - The input generation number.
+ * @returns {string} - The generated prompt filename string.
+ */
+export function buildPromptFilename(currentGeneration) {
+	return path.join(".", `generation-${pad(currentGeneration)}.md`);
 }
 
+/**
+ * Builds a formatted string combining the given prompt and optional negativePrompt.
+ *
+ * @param {string} prompt - The main prompt to be included in the output.
+ * @param {string} [negativePrompt] - The optional negative prompt to be included in the output.
+ * @returns {string} - The formatted string combining the prompts.
+ */
+export function buildPrompt(prompt, negativePrompt = "") {
+	return `# Configuration
+
+## Prompt
+
+\`\`\`shell
+${prompt}
+\`\`\`
+
+## Negative Prompt
+
+\`\`\`shell
+${negativePrompt}
+\`\`\`
+`;
+}
+
+/**
+ * Minifies the given code string by removing leading whitespace.
+ *
+ * @param {string} code - The input code to be minified.
+ * @returns {string} - The minified code.
+ */
+export function minify(code) {
+	return code.replace(/^\s+/g, "");
+}
+
+/**
+ * Prettifies the given code string using Prettier.
+ *
+ * @param {string} code - The input code to be prettified.
+ * @returns {string} - The prettified code.
+ */
 export function prettify(code) {
 	return prettier.format(code, { semi: false, parser: "babel" });
 }
 
+/**
+ * Handles errors that occur during the code generation process.
+ *
+ * @param {Error} error - The error object containing information about the error.
+ * @param {number} generation - The current generation number.
+ * @returns {Promise<void>} - A promise that resolves when the error is handled.
+ */
 export async function handleError(error, generation) {
 	const message = (
 		error.response?.data?.error.message ??

@@ -1,6 +1,6 @@
-<h1 align="center"><big>Fail1</big></h1>
+<h1 align="center"><big>fail1</big></h1>
 
-<p align="center"><img src="assets/logo.png" alt="logo"/></p>
+<p align="center"><img src="assets/logo.png" alt="logo" width="200"/></p>
 
 > This project is built to fail  
 > (until it doesn't)
@@ -81,7 +81,7 @@ OPENAI_API_KEY=your_api_key_here
 To start the code generation process, run the following command:
 
 ```shell
-node generation-000.js -G "<goal>" -g <generations> -p "<persona>" -t <temperature> -c -m "<model>"
+node generation-000.js -G "<goal>" -g <generations> -p "<persona>" -t <temperature> -c -m "<model>" -n "<negative_prompt>"
 ```
 
 ## Options
@@ -94,6 +94,7 @@ node generation-000.js -G "<goal>" -g <generations> -p "<persona>" -t <temperatu
 | `--temperature` | `-t`  | `number`  | `0.2`                                                                      | Sets the temperature for the generated code                       |
 | `--clean`       | `-c`  | `boolean` | `false`                                                                    | Set to `true` if you want to remove any previously generated code |
 | `--model`       | `-m`  | `string`  | `"gpt-3.5-turbo"`                                                          | Sets the model to use for generating the code                     |
+| `--negative`    | `-n`  | `string`  |                                                                            | Sets the negative prompt for the generated code                   |
 
 ## Functionality
 
