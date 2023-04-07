@@ -58,7 +58,7 @@ Examples
 			model: {
 				type: "string",
 				alias: "m",
-				default: "gpt-3.5-turbo",
+				default: "gpt-3.5-turbo-0301",
 			},
 		},
 	}
@@ -73,33 +73,30 @@ const configuration = new Configuration({
 export const openai = new OpenAIApi(configuration);
 
 const instructions = `
-The code should ALWAYS be IMPROVED or EXTENDED or REFACTORED or FIXED
-be creative and add new features
-The GOAL must be completed
+Extend the code but the RULES can NEVER be changed and must be respected AT ALL TIMES.
+The code should INCREASE in logic.
+The GOAL must be completed.
 
 GOAL: ${flags.goal}
 
-increment the generation constant ONCE per generation
-Keep track of changes, EXTEND the CHANGELOG
-NEVER use external apis with secret or key
-ONLY use es module syntax (with imports)
-NEVER explain anything
-ALWAYS output ONLY JavaScript
+RULES:
+- Pay special attention TO ALL UPPERCASE words
+- KEEP the existing code, only ADD new code or improve the code you added since "Generation 0"
+- increment the generation constant ONCE per generation
+- Keep track of changes, EXTEND the CHANGELOG
+- Use es module syntax (with imports)
+- NEVER use "require"
+- NEVER explain anything
+- VERY IMPORTANT: output valid JavaScript only
 `;
 
 const history = [];
 
 export const generations = flags.generations;
-const maxSpawns = 3;
-let spawns = maxSpawns;
 let run = 0;
 
 export async function evolve(generation) {
 	if (flags.help) {
-		return;
-	}
-	if (spawns <= 0) {
-		spinner.fail("Maximum retries reached");
 		return;
 	}
 	const nextGeneration = generation + 1;
@@ -107,13 +104,15 @@ export async function evolve(generation) {
 	try {
 		const filename = buildFilename(generation);
 		const code = await fs.readFile(filename, "utf-8");
-		spinner.start(`Generation ${generation} | ${spawns} spawns left`);
+		spinner.start(`Evolution ${generation} -> ${generation + 1}`);
+		history.shift();
+		history.shift();
 
 		if (flags.clean) {
 			// Remove all older generations
-			const files = (await globby(["generation-*.js", "!generation-000.js"])).filter(
-				file => file > buildFilename(generation)
-			);
+			const files = (
+				await globby(["generation-*.js", "!generation-000.js", "generation-error-*.js"])
+			).filter(file => file > buildFilename(generation));
 			await Promise.all(files.map(async file => await fs.unlink(file)));
 		}
 
@@ -134,14 +133,22 @@ export async function evolve(generation) {
 			role: "user",
 			content: "continue the code",
 		});
-		spinner.start(`Evolution ${generation} -> ${generation + 1}`);
+
+		console.log([
+			{
+				role: "system",
+				content: `You are a programmer with these characteristics: ${flags.persona}. You strictly follow these instructions: ${instructions}`,
+			},
+			...history,
+		]);
+
 		const completion = await openai.createChatCompletion({
 			// model: "gpt-4",
 			model: flags.model,
 			messages: [
 				{
 					role: "system",
-					content: `You are a: ${flags.persona}. You strictly follow these instructions: ${instructions}`,
+					content: `You are a programmer with these characteristics: ${flags.persona}. You strictly follow these instructions: ${instructions}`,
 				},
 				...history,
 			],
@@ -153,21 +160,32 @@ export async function evolve(generation) {
 		const cleanContent = content
 			.replace("```javascript", "")
 			.replace("```js", "")
-			.replace("```", "");
+			.replace("```", "")
+			.replace(/\s+/g, " ");
 		if (cleanContent.startsWith("/*")) {
 			history.push({
 				role: "assistant",
 				content: cleanContent,
 			});
 			const nextFilename = buildFilename(nextGeneration);
-			await fs.writeFile(nextFilename, prettify(cleanContent));
+
+			try {
+				await fs.writeFile(nextFilename, prettify(cleanContent));
+			} catch (error) {
+				spinner.fail(`Evolution ${generation} -> ${generation + 1}`);
+
+				const nextFilename = buildErrorFilename(nextGeneration);
+				await fs.writeFile(nextFilename, cleanContent);
+
+				return;
+			}
+
 			spinner.succeed(`Evolution ${generation} -> ${generation + 1}`);
 			await import(`./${nextFilename}`);
 		} else {
 			throw new Error("NOT_JAVASCRIPT");
 		}
 	} catch (error) {
-		spawns--;
 		spinner.fail(`Evolution ${generation} -> ${generation + 1}`);
 		await handleError(error, generation);
 	}
@@ -181,8 +199,12 @@ export function buildFilename(currentGeneration) {
 	return path.join(".", `generation-${pad(currentGeneration)}.js`);
 }
 
+export function buildErrorFilename(currentGeneration) {
+	return path.join(".", `generation-error-${pad(currentGeneration)}.js`);
+}
+
 export function minify(code) {
-	return code.replace(/^\s+/gim, "");
+	return code.replace(/^\s+/g, "");
 }
 
 export function prettify(code) {
@@ -191,7 +213,7 @@ export function prettify(code) {
 
 export async function handleError(error, generation) {
 	const message = (
-		error.response?.data?.error.message ??
+		error.response?.data?.error?.message ??
 		error.message ??
 		"unknown error"
 	).trim();
